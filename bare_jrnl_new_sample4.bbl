@@ -124,11 +124,22 @@ L.~Rui, X.~Ding, S.~Wu, Q.~Wu, and Y.~Shao, ``{Signal processing collaborated wi
 M.-H. Guo, T.-X. Xu, J.-J. Liu, Z.-N. Liu, P.-T. Jiang, T.-J. Mu, S.-H. Zhang, R.~R. Martin, M.-M. Cheng, and S.-M. Hu, ``Attention mechanisms in computer vision: A survey,'' \emph{Computational Visual Media}, vol.~8, no.~3, pp. 331--368. [Online]. Available: \url{https://link.springer.com/10.1007/s41095-022-0271-y}
 \BIBentrySTDinterwordspacing
 
+\bibitem{liDeepExpertNetwork2024}
+Q.~Li, Y.~Liu, S.~Sun, Z.~Qin, and F.~Chu, ``Deep expert network: {{A}} unified method toward knowledge-informed fault diagnosis via fully interpretable neuro-symbolic {{AI}},'' \emph{Journal of Manufacturing Systems}, vol.~77, pp. 652--661, Dec. 2024.
+
+\bibitem{leiApplicationsMachineLearning2020d}
+Y.~Lei, B.~Yang, X.~Jiang, F.~Jia, N.~Li, and A.~K. Nandi, ``Applications of machine learning to machine fault diagnosis: {{A}} review and roadmap,'' \emph{Mechanical Systems and Signal Processing}, vol. 138, p. 106587, Apr. 2020.
+
 \bibitem{Kingma2015}
 D.~P. Kingma and J.~L. Ba, ``{Adam: A method for stochastic optimization},'' \emph{3rd International Conference on Learning Representations, ICLR 2015 - Conference Track Proceedings}, pp. 1--15, 2015.
 
 \bibitem{zhang_piezoelectric_2022}
 L.~Zhang, F.~Zhang, Z.~Qin, Q.~Han, T.~Wang, and F.~Chu, ``\BIBforeignlanguage{en}{Piezoelectric energy harvester for rolling bearings with capability of self-powered condition monitoring},'' \emph{\BIBforeignlanguage{en}{Energy}}, vol. 238, p. 121770, Jan. 2022.
+
+\bibitem{Daga2019}
+\BIBentryALTinterwordspacing
+A.~P. Daga, A.~Fasana, S.~Marchesiello, and L.~Garibaldi, ``{The Politecnico di Torino rolling bearing test rig: Description and analysis of open access data},'' \emph{Mechanical Systems and Signal Processing}, vol. 120, pp. 252--273, 2019. [Online]. Available: \url{https://doi.org/10.1016/j.ymssp.2018.10.010}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Wang2020}
 X.~Wang, C.~Shen, M.~Xia, D.~Wang, J.~Zhu, and Z.~Zhu, ``{Multi-scale deep intra-class transfer learning for bearing fault diagnosis},'' \emph{Reliability Engineering and System Safety}, vol. 202, p. 107050, oct 2020.

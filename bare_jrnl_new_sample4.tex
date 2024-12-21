@@ -100,8 +100,8 @@ Fault diagnosis serves an important role in pursuing the relationship between mo
 \subsubsection{Deep learning-based method}
 In the era of AI, many tasks involve deep learning to directly learn the relationship from monitored signals to the health state of the machine. For example, Gao et al \cite{Gao2021} proposed a novel weak fault feature extraction and diagnosis method using multi-channel continuous wavelet transform and a convolution-feature-based recurrent neural network. Hu et al. \cite{Hu2022} utilized Generative adversarial network (GAN) to fulfill fault feature recovery where Li et al. \cite{Li2023} utilized GAN to achieve cross-domain generalization. Tang et al. \cite{Tang2022} proposed a signal transformer with strong robustness under variable operating conditions.
 
-\subsubsection{Knowledge-informed intelligent fault diagnosis}
-Recently, owing to considerations of both performance and explainability, many knowledge-informed diagnostic methods have emerged \cite{deng_physics-informed_2023}.  By utilizing variational mode decomposition and a dual model of convolutional recurrent neural network, Qin et al. \cite{qin_vwm-dcrnn_2023} proposed a new diagnostic method aimed at identifying faults in insulated gate bipolar transistors. Ha et al. \cite{ha_domain_2023} employed a health data map to visually display the vibration signal of the planetary gearbox in the form of an image-like matrix, facilitating the observation of fault-related characteristics. Su et al. \cite{su_knowledge-informed_2024} introduced a knowledge-informed deep network to utilize knowledge-based features along with data-driven constrained Gaussian process for precise prediction of bearing faults. Ni et al. \cite{ni_physics-informed_2023} introduced a new physics-informed residual network designed to learn the inherent physics present in both training and testing data. This network includes a physical modal-property-dominant-generated layer and a domain-conversion layer, aiming to offer a physically consistent solution for imperfect data.
+\subsubsection{Knowledge-informed explainable intelligent fault diagnosis}
+Recently, many knowledge-informed diagnostic methods have emerged, balancing both performance and explainability \cite{deng_physics-informed_2023}. Qin et al. \cite{qin_vwm-dcrnn_2023} proposed a diagnostic method using variational mode decomposition and a dual model of convolutional recurrent neural network to identify faults in insulated gate bipolar transistors. Ha et al. \cite{ha_domain_2023} utilized a health data map to visually display the vibration signal of a planetary gearbox as an image-like matrix, aiding in the observation of fault-related characteristics. Su et al. \cite{su_knowledge-informed_2024} introduced a knowledge-informed deep network that leverages knowledge-based features along with a data-driven constrained Gaussian process for precise bearing fault prediction. Ni et al. \cite{ni_physics-informed_2023} developed a physics-informed residual network designed to learn the inherent physics in both training and testing data. This network includes a physical modal-property-dominant-generated layer and a domain-conversion layer, providing a physically consistent solution for imperfect data.
 
 % Chen et al. \cite{chen_knowledge-informed_2024} presented a data-driven approach for predicting wear by integrating domain expertise with spectral analysis, knowledge inference, data fusion, feature extraction, and regression modeling. 
 
@@ -134,6 +134,7 @@ The rest of this paper is structured as follows: Section II provides a prelimina
 \section{Preliminary}
 
 \subsection{Expert knowledge in Bearing fault diagnosis}
+
 
 \subsubsection{Filtering}
 Bearing fault diagnosis has evolved over decades, with the classic approach involving filtering the original bearing signal followed by envelope analysis \cite{Randall2011}, and other related pattern recognition methods \cite{WORDEN20114}. One exemplary filtering method is the FIR filter, which aims to eliminate noise and enhance specific features of the signal. For a real signal $x(n)$, the response of the FIR system can be formulated via convolution operator as \cite{Rui2024},
@@ -255,6 +256,9 @@ To enhance the explainability of model and identify a few crucial attentions for
 0 & \text{otherwise} .
 \end{array} \right.
 \end{equation}
+
+The AS play a crucial role in dynamically selecting the most relevant operators from the EKD. By computing the AS for each operator, the model can focus on the most important features for a given task. The AS is calculated using a combination of average pooling and variance pooling to learn the inter-channel dependencies. The top-k AS are then selected to ensure sparsity and highlight the most critical operators. This dynamic selection process allows the model to adaptively choose the best operators from the EKD, enhancing both the explainability and performance of the model.
+
 \subsection{Expert knowledge dictionary}
 
 Assuming the input signal is $\mathbf{X} \in \mathbb{R}^{B \times C \times L}$, where $B$ represents the batch size, $C$ denotes the number of signal channels, and $L$ is the signal length for each channel. Each signal processing method can be viewed as an operator $OP_i$ that transforms the signal space into an enhanced signal space:
@@ -276,6 +280,24 @@ With the aforementioned sequence of operators, we can construct $EKD_{SP}$ and $
 \end{split}
 \end{equation}
 Here, $\mathcal{P}(OP_i)$ represents the semantic attributes or characteristics of operator $OP_i$. With these operators and their semantic attributes, an expert knowledge dictionary is constructed for signal processing and feature extraction operations, facilitating expert comprehension at a later stage.
+
+The selection of signal processing and feature extraction methods for constructing the EKD in this paper is based on their proven effectiveness and interpretability in the field of fault diagnosis \cite{liDeepExpertNetwork2024, leiApplicationsMachineLearning2020d}. The criteria for selecting these methods include:
+
+\begin{itemize}
+    \item \textbf{Relevance to Fault Diagnosis}: The methods chosen should have direct applications in diagnosing faults in rotating machinery. This includes techniques like wavelet transform, Hilbert transform, and statistical feature extraction, which are widely used in the industry.
+    \item \textbf{Proven Effectiveness}: The methods should have demonstrated success in previous research and practical applications. This ensures that the EKD is built on reliable and validated techniques.
+    \item \textbf{Interpretability}: The selected methods should provide clear and understandable results that can be easily interpreted by experts. This is crucial for the explainability aspect of the model.
+
+\end{itemize}
+
+While the methods included in the EKD represent a comprehensive set of existing expert knowledge, it is acknowledged that the field is continuously evolving, and new methods are being developed. Therefore, the EKD can also be updated to incorporate new advancements. let \( EKD_t \) be the EKD at time \( t \). As new methods \( OP_{new} \) are developed, they can be incorporated into the EKD as follows:
+\begin{equation}
+    EKD_{t+1} = EKD_t \cup \{ OP_{new} \},
+\end{equation}
+where \( \cup \) denotes the union of the existing EKD and the new methods. This ensures that the EKD remains up-to-date with the latest advancements in the field. The dynamic nature of the proposed model allows it to adapt and focus on the most relevant features, mitigating some of the risks associated with an evolving EKD. The significance of establishing the EKD lies in its ability to integrate domain expertise into the model, enhancing its interpretability and reliability. By leveraging expert knowledge, the model can provide more meaningful and trustworthy diagnostic results, which is crucial for industrial applications where decision-making based on AI models needs to be transparent and justifiable.
+
+
+
 
 \subsection{XOA block }
 To utilize the adaptive selection module effectively, the initial step involves standardizing the signal scales of different channels. This process of standardization is a common practice in deep learning, aiming to normalize each channel independently:
@@ -312,10 +334,10 @@ Therefore, the final optimization goal optimized by stochastic gradient decent  
 \end{align}
  where the $\gamma$  is the trade-off between CE and L1 regularization. 
 
-% \section{Case studies}
-\section{Case study}
+\section{Case studies}
+% \section{Case study}
 \subsection{Dataset setting}\label{section.setting}
-% \subsubsection{Dataset 1: vibration and Piezoelectric signal}
+\subsubsection{Dataset 1: vibration and Piezoelectric signal}
 % \subsubsection{vibration and Piezoelectric signal}
 
 We employ a self-powered condition monitoring dataset obtained using a piezoelectric energy harvester in Fig. \ref{fig3} \cite{zhang_piezoelectric_2022}. The dataset contains voltage signals from four health conditions: normal (Nor), inner race fault (IF), ball fault (BF), and outer race fault (OF). The collected signals with 40960 Hz sampling frequency are downsampled to a 4096Hz and segmented at different time intervals to build 100 samples for each of the training set, validation set, and test set, respectively. Each sample has 4096 data points. In order to evaluate the performance of the XOAN model. Task \textbf{D1T1} involves training the model under the rotating frequency of 10Hz and testing it under the same frequency to assess its basic diagnostic capabilities. Task \textbf{D1T2} aims to evaluate the generalizability of the model trained by 1 Hz and 15 Hz and testing it under the rotating frequency of 10 Hz. 
@@ -327,73 +349,74 @@ We employ a self-powered condition monitoring dataset obtained using a piezoelec
 \label{fig3}
 \end{figure}
 
-% \subsubsection{Dataset 2: high-speed aeronautical bearings signal}
-% The experimental data used in case 2 was obtained from the rolling bearing test rig at the Dynamic and Identification Research Group (DIRG) in the Department of Mechanical and Aerospace Engineering at Politecnico di Torino \cite{Daga2019}. The test rig is specifically designed to test high-speed aeronautical bearings under various conditions. Fig. \ref{figDRIG} (a) illustrates the general structure of the test rig, which includes a high-speed spindle for driving the rotation of the shaft. As depicted in Fig. \ref{figDRIG} (b), two triaxial accelerometers are installed at positions A1 and A2 to capture vibration data. The sampling frequency for the accelerometers is set to 51,200 Hz, ensuring high-resolution data acquisition and downsampled to 4096 Hz for dataset construction. The bearings under test are subjected to different speeds and loads to evaluate their performance and detect faults. Specifically, the bearings B1, B2, and B3 are mounted on a shaft designed for speeds up to 35,000 rpm, as shown in Fig. \ref{figDRIG} (c). The dataset comprises acceleration signal time histories for bearings exhibiting various types and sizes of faults, captured across different operational scenarios. To form the dataset, we utilized seven distinct health conditions of bearings, as shown in Table \ref{label}. Table \ref{WC} provides an overview of the dataset counts at different speeds, with six recorded channels corresponding to the accelerometer outputs placed at points A1 and A2. Each operational condition encompasses seven health states. Data is structured in the form of  $B,L,C$ where $B$ denotes the number of samples, $L$ denotes the length of each sample, and $C$ denotes the number of channels. 
+\subsubsection{Dataset 2: high-speed aeronautical bearings signal}
+The experimental data used in case 2 was obtained from the rolling bearing test rig at the Dynamic and Identification Research Group (DIRG) in the Department of Mechanical and Aerospace Engineering at Politecnico di Torino \cite{Daga2019}. The test rig is specifically designed to test high-speed aeronautical bearings under various conditions. Fig. \ref{figDRIG} (a) illustrates the general structure of the test rig, which includes a high-speed spindle for driving the rotation of the shaft. As depicted in Fig. \ref{figDRIG} (b), two triaxial accelerometers are installed at positions A1 and A2 to capture vibration data. The sampling frequency for the accelerometers is set to 51,200 Hz, ensuring high-resolution data acquisition and downsampled to 4096 Hz for dataset construction. The bearings under test are subjected to different speeds and loads to evaluate their performance and detect faults. Specifically, the bearings B1, B2, and B3 are mounted on a shaft designed for speeds up to 35,000 rpm, as shown in Fig. \ref{figDRIG} (c). The dataset comprises acceleration signal time histories for bearings exhibiting various types and sizes of faults, captured across different operational scenarios. To form the dataset, we utilized seven distinct health conditions of bearings, as shown in Table \ref{label}. Table \ref{WC} provides an overview of the dataset counts at different speeds, with six recorded channels corresponding to the accelerometer outputs placed at points A1 and A2. Each operational condition encompasses seven health states. Data is structured in the form of  $B,L,C$ where $B$ denotes the number of samples, $L$ denotes the length of each sample, and $C$ denotes the number of channels. 
 
- % In order to evaluate the performance of the XOAN model. Task involves training the model under the rotating frequency of 300Hz and testing it under the same frequency to assess its basic diagnostic capabilities and then 
- % assess the robustness of models by introducing noise into the test signal at varying signal-to-noise ratios (SNR).
+ In order to evaluate the performance of the XOAN model. Task involves training the model under the rotating frequency of 300Hz and testing it under the same frequency to assess its basic diagnostic capabilities and then 
+ assess the robustness of models by introducing noise into the test signal at varying signal-to-noise ratios (SNR).
  
  All the diagnostic models are implemented in python 3.8,  and PyTorch 1.12, which is set 5 different random seeds to avoid the contingency. The model training are realized based on the Linux-5.10.102.1 and GeForce RTX 4090 GPU.
 
  % Task \textbf{D2T2} aims to evaluate the generalizability of the model by training it under the rotating frequency of 100,200,400,500 and testing it under the rotating frequency of 300Hz.
 
-% \begin{figure}[htbp]
-% \centerline{\includegraphics[width=0.65\linewidth]{Figs/DRIG_test_rig.pdf}}
-% \caption{The bearing test rigs: a) a comprehensive overview of the test rig; b) the positions of the accelerometers and the reference system; c) the shaft fitted with three roller bearings. }
-% \label{figDRIG}
-% \end{figure}
-% \begin{table}[h]
-%     \centering
-%     \caption{Data Composition of different fault and dimension}
-%     \begin{tabular}{cc} \hline
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.65\linewidth]{Figs/DRIG_test_rig.pdf}}
+\caption{The bearing test rigs: a) a comprehensive overview of the test rig; b) the positions of the accelerometers and the reference system; c) the shaft fitted with three roller bearings. }
+\label{figDRIG}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \caption{Data Composition of different fault and dimension}
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}cc@{}} \hline
         
-%          \textbf{Fault} & \textbf{Dimension (\(\mu m\))}\\ \hline
+         \textbf{Fault} & \textbf{Dimension (\(\mu m\))}\\ \hline
         
-%          No defect& - \\
+         No defect& - \\
         
-%          Indentation size on the inner ring& 450 \\
+         Indentation size on the inner ring& 450 \\
         
-%          Indentation size on the inner ring& 250 \\
+         Indentation size on the inner ring& 250 \\
         
-%          Indentation size on the inner ring& 150 \\
+         Indentation size on the inner ring& 150 \\
         
-%          Indentation size on a roller& 450 \\
+         Indentation size on a roller& 450 \\
         
-%          Indentation size on a roller& 250 \\
+         Indentation size on a roller& 250 \\
         
-%          Indentation size on a roller& 150 \\ \hline
+         Indentation size on a roller& 150 \\ \hline
         
-%     \end{tabular}
-% \label{label}
-% \end{table}
-% \begin{table}[h]
-%     \centering
-%     \caption{Dataset under different rotating frequency}
-%     \begin{tabular}{ccc} \hline
+    \end{tabular*}
+\label{label}
+\end{table}
+\begin{table}[h]
+    \centering
+    \caption{Dataset under different rotating frequency}
+    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccc@{}} \hline
         
-%         \textbf{Frequency (Hz)} & \textbf{Data Shape} & \textbf{Label Shape} \\ \hline
+        \textbf{Frequency (Hz)} & \textbf{Data Shape} & \textbf{Label Shape} \\ \hline
         
-%         100 & (3375, 4096, 6) & (3375,1) \\
+        100 & (3375, 4096, 6) & (3375,1) \\
         
-%         200 & (3125, 4096, 6) & (3125,1) \\
+        200 & (3125, 4096, 6) & (3125,1) \\
         
-%         300 & (3500, 4096, 6) & (3500,1) \\
+        300 & (3500, 4096, 6) & (3500,1) \\
         
-%         400 & (2625, 4096, 6) & (2625,1) \\
+        400 & (2625, 4096, 6) & (2625,1) \\
         
-%         500 & (1750, 4096, 6) & (1750,1) \\ \hline
+        500 & (1750, 4096, 6) & (1750,1) \\ \hline
         
-%     \end{tabular}
-% \label{WC}
-% \end{table}
+    \end{tabular*}
+\label{WC}
+\end{table}
 
 
 \subsection{Compared methods}
 In order to assess the performance of our model in terms of effectiveness, model explainability and diagnostic performance, we conduct a comparative analysis with various IFD methods using different parameters, as detailed in Table \ref{table.signaldomain}. Among these methods is the ResNet fashion method, a widely recognized convolutional neural network utilized in various domains, including IFD \cite{Wang2020}. For our comparison, we selected the ResNet-18 version as M1, serving as the neural fashion backbone. Additionally, we assessed Sincnet \cite{liu_sinc-based_2023} as M2 and the WKN model \cite{Li2022} as M3, both of which incorporate sinc filters and maintain Morlet wavelet convolution expertise analogous to ResNet. Moreover, we included the MWA-CNN \cite{Wang2023}, which integrates the Discrete Wavelet Attention Layer, as M4 for evaluation purposes.
 
 
-% \subsection{Case 1}
-\subsection{Results and discussion}
+\subsection{Case 1}
+% \subsection{Results and discussion}
 \subsubsection{Ablation study}
 
 Firstly, an ablation study is conducted to evaluate the effectiveness of the modules, as shown in Fig. \ref{fig:abalation}. The $x$-axis represents the learning rate $\lambda$, and the $y$-axis represents the L1-norm weight $\gamma$. It can be observed from Fig. \ref{fig:abalation} (a) that employing all components at $\lambda \in [1e-5,1e-1]$ and $\gamma \in [1e-5,1e-1]$ yields a good validation accuracy. Conversely, in Fig. \ref{fig:abalation} (b), without filter knowledge, the model requires more tuning to find suitable parameters. The training of the proposed XOA Block becomes more challenging in the absence of residual connections, as depicted in Fig. \ref{fig:abalation} (c). Without the knowledge of solving the envelope via the HT transform, subsequent features are harder to explore, as shown in Fig. \ref{fig:abalation} (d). Fig. \ref{fig:abalation} (e) indicates that if only Mean is used for information aggregation, similar to traditional deep learning networks, the model struggles to converge to good performance. Lastly, Fig. \ref{fig:abalation} (f) demonstrates the significant role played by Kurtosis.
@@ -483,49 +506,49 @@ Furthermore, after passing through multiple layers of $XOA_{SP}$ blocks, it is n
 \end{figure}
 
 
-% \subsection{Case 2}
+\subsection{Case 2}
 
 % \subsubsection{basic} % TODO
 
-% \begin{table*}
-%     \centering
-% \caption{Diagnosis accuracy of D2T1,D2T2,D2T3.}
-% \label{table.signaldomain}
-%     \begin{tabular}{cclll} \hline  
-%          Methods&    Parameters& Interpretability& D2T1 (\%)&D2T2 (\%)\\ \hline  
-%          TIFN& \textbf{34.37k}& √& 100$\pm$0&\textbf{98.75$\pm$0.02}\\ 
-%          M1& 384.64k& /& 100$\pm$0&52.38$\pm$4.17\\ 
-%          M2& 384.55k& √& 100$\pm$0&50.34$\pm$23.34\\ \hline
-%  M3& 384.55k& √& 100$\pm$0&61.86$\pm$19.38\\
-%  M4& 87.00k& √& 100$\pm$0&96.05$\pm$2.77\\  \hline
-%     \end{tabular}
-% \end{table*}
+\begin{table}
+    \centering
+\caption{Diagnosis accuracy of D2T1,D2T2,D2T3.}
+\label{table.signaldomain}
+    \begin{tabular}{cclll} \hline  
+         Methods&    Parameters& Interpretability& D2T1 (\%)&D2T2 (\%)\\ \hline  
+         TIFN& \textbf{34.37k}& $\checkmark$& 100$\pm$0&\textbf{98.75$\pm$0.02}\\ 
+         M1& 384.64k& /& 100$\pm$0&52.38$\pm$4.17\\ 
+         M2& 384.55k& $\checkmark$& 100$\pm$0&50.34$\pm$23.34\\ \hline
+ M3& 384.55k& $\checkmark$& 100$\pm$0&61.86$\pm$19.38\\
+ M4& 87.00k& $\checkmark$& 100$\pm$0&96.05$\pm$2.77\\  \hline
+    \end{tabular}
+\end{table}
 
-% \subsubsection{Diagnosis performance under noise attack} \label{c.snr_curve}
+\subsubsection{Diagnosis performance under noise attack} \label{c.snr_curve}
 
-% Fig. \ref{fig_noise} illustrates the performance comparison of different methods in combating varying levels of noise. It can be observed that the proposed approach exhibits comparable performance to the M1, M3 and M4 methods under low noise conditions, approaching higher levels of accuracy. As the noise levels increase, the accuracy of all models is affected, leading to a decline. The proposed method, by integrating the interpretability of expert knowledge with the adaptability of neural networks, further enhances the robustness of the model.
+Fig. \ref{fig_noise} illustrates the performance comparison of different methods in combating varying levels of noise. It can be observed that the proposed approach exhibits comparable performance to the M1, M3 and M4 methods under low noise conditions, approaching higher levels of accuracy. As the noise levels increase, the accuracy of all models is affected, leading to a decline. The proposed method, by integrating the interpretability of expert knowledge with the adaptability of neural networks, further enhances the robustness of the model.
 
-% \begin{figure}[htbp]
-% \centerline{\includegraphics[width=0.95\linewidth]{Figs/case1/accuracy_vs_snr_case2.pdf}}
-% \caption{The robustness of different methods under different noise.}
-% \label{fig_noise}
-% \end{figure}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.95\linewidth]{Figs/case2/accuracy_vs_snr_case2.pdf}}
+\caption{The robustness of different methods under different noise.}
+\label{fig_noise}
+\end{figure}
 
-% \subsubsection{Attention score under noise attack} When observing the characteristics of attention in dynamic recognition models without noise in Fig. \ref{fig.attention_vis_case2}, it is evident that healthy samples exhibit low attention to features. Kurtosis emerges as a significant feature, particularly for identifying slight faults in the peak value and kurtosis of the IF fault. In cases of moderate faults in the IF, Variance, Entropy, and kurtosis play crucial roles. Moreover, for severe IF faults, Crest Factor and Clearance Factor are notably important features. In the context of faults in the OF fault, slight faults are notably valuable for Std and peak value. Moderate faults are characterized by standard deviation, entropy, Crest Factor, and Clearance Factor. Severe faults are distinguished by mean, peak value, Crest Factor, and Clearance Factor as key features.
-% Furthermore, in Fig. \ref{fig.attention_vis_case2_noise}, the model still maintains a relatively high accuracy. At this point, the model predominantly focuses on Kurtosis and clearance Factor as key features, indicating their strong noise robustness, which aligns with expert knowledge. Therefore, the proposed method effectively integrates expert knowledge and neural networks, enhancing the model's performance.
+\subsubsection{Attention score under noise attack} When observing the characteristics of attention in dynamic recognition models without noise in Fig. \ref{fig.attention_vis_case2}, it is evident that healthy samples exhibit low attention to features. Kurtosis emerges as a significant feature, particularly for identifying slight faults in the peak value and kurtosis of the IF fault. In cases of moderate faults in the IF, Variance, Entropy, and kurtosis play crucial roles. Moreover, for severe IF faults, Crest Factor and Clearance Factor are notably important features. In the context of faults in the OF fault, slight faults are notably valuable for Std and peak value. Moderate faults are characterized by standard deviation, entropy, Crest Factor, and Clearance Factor. Severe faults are distinguished by mean, peak value, Crest Factor, and Clearance Factor as key features.
+Furthermore, in Fig. \ref{fig.attention_vis_case2_noise}, the model still maintains a relatively high accuracy. At this point, the model predominantly focuses on Kurtosis and clearance Factor as key features, indicating their strong noise robustness, which aligns with expert knowledge. Therefore, the proposed method effectively integrates expert knowledge and neural networks, enhancing the performance of model.
 
-% \begin{figure}[htbp] 
-% \centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention.pdf}}
-% \caption{Attention score of features without noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
-% \label{fig.attention_vis_case2}
-% \end{figure}
+\begin{figure}[htbp] 
+\centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention.pdf}}
+\caption{Attention score of features without noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
+\label{fig.attention_vis_case2}
+\end{figure}
 
 
-% \begin{figure}[htbp] 
-% \centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention_noise.pdf}}
-% \caption{Attention score of features with 0db noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
-% \label{fig.attention_vis_case2_noise}
-% \end{figure}
+\begin{figure}[htbp] 
+\centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention_noise.pdf}}
+\caption{Attention score of features with 0db noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
+\label{fig.attention_vis_case2_noise}
+\end{figure}
 
 
 % \subsubsection{gen}
@@ -534,7 +557,7 @@ Furthermore, after passing through multiple layers of $XOA_{SP}$ blocks, it is n
 
 This study proposes the eXplainable Operator Attention Network (XOAN) to dynamically learn and utilize expert knowledge for bearing fault diagnosis, aiming to enhance the explainability and adaptability of intelligent diagnostic models. The XOAN integrates an Expert Knowledge Dictionary (EKD) and Dynamic Sparse Operator Attention (DSOA) to adaptively identify features. Through a case study, it is shown that XOAN not only achieves satisfactory diagnostic performance but also offers insights into selecting operators for more effective diagnostics using DSOA mechanisms. The effectiveness of the modules is verified through ablation studies, while attention scores reveal the utilization of expert knowledge, and feature visualization demonstrates the adaptive selection of operators and extraction of interpretable features based on different operating conditions, offering significant benefits for industrial applications. 
 
-Future research will focus on expanding the EKD and conducting more extensive tests with additional data and diagnostic tasks to further enhance the applicability of DSOA and XOAN.  
+Future research will focus on expanding the EKD with criteria for selecting and conducting more extensive tests with additional data and diagnostic tasks to further enhance the applicability of DSOA and XOAN.
 
 % Through two case studies,
 

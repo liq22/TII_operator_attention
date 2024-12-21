@@ -26,10 +26,12 @@
 \backcite {Li2024_TON}{{2}{\mbox {II-A}1}{equation.2.1}}
 \backcite {Randall2011}{{2}{\mbox {II-A}2}{subsubsection.2.1.2}}
 \backcite {guo_attention_2022}{{3}{\mbox {II-B}}{subsection.2.2}}
-\backcite {Kingma2015}{{5}{\mbox {III-E}}{equation.3.23}}
-\backcite {zhang_piezoelectric_2022}{{5}{\mbox {IV-A}}{subsection.4.1}}
+\backcite {liDeepExpertNetwork2024, leiApplicationsMachineLearning2020d}{{4}{\mbox {III-C}}{equation.3.17}}
+\backcite {Kingma2015}{{5}{\mbox {III-E}}{equation.3.24}}
+\backcite {zhang_piezoelectric_2022}{{5}{\mbox {IV-A}1}{subsubsection.4.1.1}}
 \backcite {zhang_piezoelectric_2022}{{5}{3}{figure.3}}
-\backcite {Wang2020}{{5}{\mbox {IV-B}}{subsection.4.2}}
-\backcite {liu_sinc-based_2023}{{5}{\mbox {IV-B}}{subsection.4.2}}
-\backcite {Li2022}{{5}{\mbox {IV-B}}{subsection.4.2}}
-\backcite {Wang2023}{{5}{\mbox {IV-B}}{subsection.4.2}}
+\backcite {Daga2019}{{5}{\mbox {IV-A}2}{subsubsection.4.1.2}}
+\backcite {Wang2020}{{6}{\mbox {IV-B}}{subsection.4.2}}
+\backcite {liu_sinc-based_2023}{{6}{\mbox {IV-B}}{subsection.4.2}}
+\backcite {Li2022}{{6}{\mbox {IV-B}}{subsection.4.2}}
+\backcite {Wang2023}{{6}{\mbox {IV-B}}{subsection.4.2}}
