@@ -28,18 +28,20 @@ Explainable operator attention network: an explainable neural network for bearin
 
 %%%%%%%%%%%%%%%%%%%%%%%% 
 
-% \author{Qi Li, \textit{Graduate Student Member, IEEE}, Wenyang Hu, Qijian Lin, Hua Li, \textit{Senior Member, IEEE}, Zhaoye Qin, \textit{Member}, IEEE, Fulei Chu
+\author{Qi Li, \textit{Graduate Student Member, IEEE}, Wenyang Hu, Qijian Lin, Hua Li, \textit{Senior Member, IEEE}, 
 
-% \thanks{This research was supported by the Science Center for Gas Turbine Project (Grant No. P2022-B-III-002–001).(Corresponding author: Zhaoye Qin.)
+Zhaoye Qin, \textit{Member}, IEEE, Fulei Chu
 
-% Qi Li, Wenyang Hu, Qijian Lin, Zhaoye Qin, Fulei Chu are with State Key Laboratory of Tribology, Department of Mechanical Engineering, Tsinghua University, Beijing, China (email:liq22@tsinghua.org.cn;
-% hwy20@mails.tsinghua.edu.cn;
-% linqj22@mails.tsinghua.edu.cn;
-% qinzy@mail.tsinghua.edu.cn;
-% chufl@mail.tsinghua.edu.cn).
+\thanks{This research was supported by the Science Center for Gas Turbine Project (Grant No. P2022-B-III-002–001).(Corresponding author: Zhaoye Qin.)
 
-% Hua Li is with State Key Laboratory of Tribology, Department of Mechanical Engineering, Tsinghua University, Beijing, China and State Key Laboratory of Public Big Data, Guizhou University, Guiyang 550025, China (email: lihua.41@163.com)}
-% }
+Qi Li, Wenyang Hu, Qijian Lin, Zhaoye Qin, Fulei Chu are with State Key Laboratory of Tribology, Department of Mechanical Engineering, Tsinghua University, Beijing, China (email:liq22@tsinghua.org.cn;
+hwy20@mails.tsinghua.edu.cn;
+linqj22@mails.tsinghua.edu.cn;
+qinzy@mail.tsinghua.edu.cn;
+chufl@mail.tsinghua.edu.cn).
+
+Hua Li is with State Key Laboratory of Tribology, Department of Mechanical Engineering, Tsinghua University, Beijing, China and State Key Laboratory of Public Big Data, Guizhou University, Guiyang 550025, China (email: lihua.41@163.com)}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % <-this % stops a space
 
@@ -56,7 +58,7 @@ Explainable operator attention network: an explainable neural network for bearin
 
 \begin{abstract}
 
- Explainable AI has gained significant traction across various industrial sectors, particularly in intelligent fault diagnosis. However, dynamically integrating domain expertise with neural networks to enhance explainability poses a challenge. Therefore, this study presents a novel eXplainable Operator Attention Network (XOAN), which capitalizes on an explainable Expert Knowledge Dictionary (EKD) with signal processing and statistical features for analyzing signals. Then, a novel Dynamic Sparse Operator Attention (DSOA) module is proposed to dynamically identify critical expert knowledge through a top-k attention mechanism. By incorporating DSOA into an operator attention block, XOAN enables seamless end-to-end learning and inference, optimizing diagnostic capabilities. A case study showcases the effectiveness and explainability of XOAN, illustrating how it allows neural networks to select the most relevant expert operators. Ultimately, XOAN significantly advances the reliability of knowledge-informed intelligent diagnostic learning systems, making it a valuable contribution to the field of explainable AI and fault diagnosis.
+ Explainable AI has gained significant traction across various industrial sectors, particularly in intelligent fault diagnosis. However, dynamically integrating domain expertise with neural networks to enhance explainability poses a challenge. Therefore, this study presents a novel eXplainable Operator Attention Network (XOAN), which capitalizes on an explainable Expert Knowledge Dictionary (EKD) with signal processing and statistical features for analyzing signals. Then, a novel Dynamic Sparse Operator Attention (DSOA) module is proposed to dynamically identify critical expert knowledge through a top-k attention mechanism. By incorporating DSOA into an operator attention block, XOAN enables seamless end-to-end learning and inference, optimizing diagnostic capabilities. Case studies showcase the effectiveness and explainability of XOAN, illustrating how it allows neural networks to select the most relevant expert operators. Ultimately, XOAN significantly advances the reliability of knowledge-informed intelligent diagnostic learning systems, making it a valuable contribution to the field of explainable AI and fault diagnosis.
 
 
 
@@ -77,7 +79,7 @@ Intelligent fault diagnosis, operator attention, expert knowledge, signal proces
 \section{Introduction}
 
 % \subsection{background}
-\IEEEPARstart{M}{odern} AI systems are commonly perceived as black boxes due to their lack of transparency in behavior and decision-making processes  \cite{Rong2024}. Explainable AI (XAI) is deemed essential for the continuous advancement of AI research across various fields including medicine \cite{Holzinger2022}, industry \cite{Li2023} and automobiles \cite{Dong2023}. The explainablity of a model is essential for the effective implementation of AI, particularly in critical domains such as industrial asset fault diagnosis \cite{Li2024}. Fault diagnosis is a valuable tool for ensuring the safe operation of industrial systems and minimizing avoidable maintenance costs due to routine shutdowns \cite{wang_coarse--fine_2023}. Given its growing importance in modern society, if AI-assisted diagnostic methods lack explainability, industries may not trust the decision-making processes, leading to a crisis of trustworthiness. In the present context, there exist three primary approaches of fault diagnosis: expert knowledge-based fault diagnosis, methods employing deep learning techniques, and approaches that combine knowledge with deep learning methods. 
+\IEEEPARstart{M}{odern} AI systems are commonly perceived as black boxes due to their lack of transparency in behavior and decision-making processes  \cite{Rong2024}. Explainable AI (XAI) is deemed essential for the continuous advancement of AI research across various fields including medicine \cite{Holzinger2022}, industry \cite{Li2023} and automobiles \cite{Dong2023}. The explainablity of a model is essential for the effective implementation of AI, particularly in critical domains such as industrial asset fault diagnosis \cite{Li2024}. Fault diagnosis is a valuable tool for ensuring the safe operation of industrial systems and minimizing avoidable maintenance costs due to routine shutdowns \cite{henriquezReviewAutomaticFault2014, wang_coarse--fine_2023}. Given its growing importance in modern society, if AI-assisted diagnostic methods lack explainability, industries may not trust the decision-making processes, leading to a crisis of trustworthiness. In the present context, there exist three primary approaches of fault diagnosis: expert knowledge-based fault diagnosis, methods employing deep learning techniques, and explainable approaches that combine knowledge with deep learning methods. 
 
  
 
@@ -101,7 +103,7 @@ Fault diagnosis serves an important role in pursuing the relationship between mo
 In the era of AI, many tasks involve deep learning to directly learn the relationship from monitored signals to the health state of the machine. For example, Gao et al \cite{Gao2021} proposed a novel weak fault feature extraction and diagnosis method using multi-channel continuous wavelet transform and a convolution-feature-based recurrent neural network. Hu et al. \cite{Hu2022} utilized Generative adversarial network (GAN) to fulfill fault feature recovery where Li et al. \cite{Li2023} utilized GAN to achieve cross-domain generalization. Tang et al. \cite{Tang2022} proposed a signal transformer with strong robustness under variable operating conditions.
 
 \subsubsection{Knowledge-informed explainable intelligent fault diagnosis}
-Recently, many knowledge-informed diagnostic methods have emerged, balancing both performance and explainability \cite{deng_physics-informed_2023}. Qin et al. \cite{qin_vwm-dcrnn_2023} proposed a diagnostic method using variational mode decomposition and a dual model of convolutional recurrent neural network to identify faults in insulated gate bipolar transistors. Ha et al. \cite{ha_domain_2023} utilized a health data map to visually display the vibration signal of a planetary gearbox as an image-like matrix, aiding in the observation of fault-related characteristics. Su et al. \cite{su_knowledge-informed_2024} introduced a knowledge-informed deep network that leverages knowledge-based features along with a data-driven constrained Gaussian process for precise bearing fault prediction. Ni et al. \cite{ni_physics-informed_2023} developed a physics-informed residual network designed to learn the inherent physics in both training and testing data. This network includes a physical modal-property-dominant-generated layer and a domain-conversion layer, providing a physically consistent solution for imperfect data.
+Recently, many knowledge-informed diagnostic methods have emerged, balancing both performance and explainability \cite{deng_physics-informed_2023}. Wang et al. \cite{wangPhysicallyInterpretableWaveletguided2024} proposed a physically interpretable wavelet-guided network (WaveGNet) with deep frequency separation, providing a basis and physical meaning for the discrete wavelet transform (DWT). Li et al. \cite{liWaveletKernelNetInterpretableDeep2020a} designed a continuous wavelet convolutional (CWConv) layer to replace the first convolutional layer of the standard CNN. Qin et al. \cite{qin_vwm-dcrnn_2023} proposed a diagnostic method using variational mode decomposition and a dual model of convolutional recurrent neural network to identify faults in insulated gate bipolar transistors. Ha et al. \cite{ha_domain_2023} utilized a health data map to visually display the vibration signal of a planetary gearbox as an image-like matrix, aiding in the observation of fault-related characteristics. Su et al. \cite{su_knowledge-informed_2024} introduced a knowledge-informed deep network that leverages knowledge-based features along with a data-driven constrained Gaussian process for precise bearing fault prediction. Ni et al. \cite{ni_physics-informed_2023} developed a physics-informed residual network designed to learn the inherent physics in both training and testing data. This network includes a physical modal-property-dominant-generated layer and a domain-conversion layer, providing a physically consistent solution for imperfect data.
 
 % Chen et al. \cite{chen_knowledge-informed_2024} presented a data-driven approach for predicting wear by integrating domain expertise with spectral analysis, knowledge inference, data fusion, feature extraction, and regression modeling. 
 
@@ -114,12 +116,12 @@ While the work mentioned above has achieved notable success, it is important to 
     \item Moreover, the knowledge-informed network necessitates the manual selection of expert knowledge modules for each case. This approach relies on pre-configured fixed modules, making it difficult to determine the appropriate knowledge to incorporate into the model design.
 \end{itemize}
 
-To address these issues, we propose an eXplainable Operator Attention Network (XOAN), considering the possibility of utilizing neural networks to learn how to focus on various expert knowledge. This approach can provide explainable feedback to the researcher, as illustrated in Fig. \ref{idea} (b). In the XOAN framework, an expert knowledge dictionary (EKD) was initially constructed for vibration signals, incorporating signal processing and feature extraction techniques, which can be utilized in subsequent model learning. Furthermore, a Dynamic Sparse Operator Attention (DSOA) module was developed to dynamically learn and select the most critical expert knowledge using top-k attention mechanisms which contributes to achieving explainable models. Finally, by leveraging the DSOA, an Operator Attention block was designed and integrated into the model to facilitate end-to-end learning and inference for diagnostics. 
+To address these issues, we propose an eXplainable Operator Attention Network (XOAN), considering the possibility of utilizing neural networks to learn how to focus on various expert knowledge. This approach can provide explainable feedback to the researcher, as illustrated in Fig. \ref{idea} (b). In the XOAN framework, an expert knowledge dictionary (EKD) is initially constructed for signals, incorporating signal processing and feature extraction techniques, which can be utilized in subsequent model learning. Furthermore, a Dynamic Sparse Operator Attention (DSOA) module was developed to dynamically learn and select the most critical expert knowledge using top-k attention mechanisms which contributes to achieving explainable models. Finally, by leveraging the DSOA, an Operator Attention block was designed and integrated into the model to facilitate end-to-end learning and inference for diagnostics. 
 The contributions of this paper can be summarized as follows: 
 \begin{itemize}
-    \item   To achieve explainable fault diagnosis,  a XOAN model is introduced, incorporating expert knowledge through neural networks to determine the most appropriate expert knowledge for human comprehension.
-    \item   Within XOAN, a explainable operator (XOA) block is presented along with the Dynamic Sparse Operator Attention (DSOA) and feature pooling to dynamically identify and choose expert operators according to particular signals.
-    \item Case study involves the application of signal processing and feature extraction operators in the realm of intelligent fault diagnosis, showcasing its potential by adaptively employing attention to select interpretable operators, thus laying a stronger foundation for trustworthy industrial applications. 
+    \item   To achieve explainable fault diagnosis,  a XOAN model is introduced, incorporating expert knowledge through neural networks to determine the most appropriate expert knowledge dictionary (EKD) for human comprehension.
+    \item   Within XOAN, a explainable operator (XOA) block is presented along with the Dynamic Sparse Operator Attention (DSOA) and feature pooling (FP) to dynamically identify and choose expert operators according to particular signals.
+    \item Case studies involve the application of signal processing and feature extraction operators in the realm of intelligent fault diagnosis, showcasing its potential by adaptively employing attention to select interpretable operators, thus laying a stronger foundation for trustworthy industrial applications. 
 
 % \begin{itemize}
     % \item Signal dataset
@@ -165,7 +167,7 @@ z(t) = x(t) + jy(t).
 The magnitude of the analytic signal $|z(t)|$ is the envelope of the signal $x(t)$, which contains information about its amplitude modulation. 
 
 \subsubsection{Feature extraction}
-Enhanced signals enable the extraction of their statistical characteristics for signal pattern recognition. These features comprise various sets, as shown in Table \ref{feature sets}, including typical statistical features like mean, variance, peak value, root mean square, kurtosis, crest factor, skewness, etc. These features are commonly used as physical health indicators for machine health monitoring. Additionally, Entropy, a well-known measure in information theory, is extensively employed in machine fault diagnosis. 
+Enhanced signals enable the extraction of their statistical characteristics for signal pattern recognition. These features comprise various sets, as shown in Table \ref{tab:feature sets}, including typical statistical features like mean, variance, peak value, root mean square, kurtosis, crest factor, skewness, etc\cite{badihiComprehensiveReviewSignalBased2022a, leiApplicationsMachineLearning2020d}. These features are commonly used as physical health indicators for machine health monitoring. Additionally, Entropy, a well-known measure in information theory, is extensively employed in machine fault diagnosis. 
 
 Establishing a pipeline of operators for a new machine can be a complex task, as it involves choosing specific features using expert knowledge. This complexity presents a challenge in integrating of this explainable expert knowledge into an adaptable Intelligent Fault Diagnosis (IFD) model. 
 
@@ -175,7 +177,7 @@ Establishing a pipeline of operators for a new machine can be a complex task, as
 
 \captionsetup{justification=raggedright}
 \tabcolsep=0.7cm
-\label{feature sets}
+\label{tab:feature sets}
     \begin{tabular}{lcclll} \hline  
           NO.&Feature name& Equations &  NO.&Feature name&Equations \\ \hline  
           0&Mean& $\frac{1}{N}\sum_{i=1}^{N} x_i$ &  7&Kurtosis&$\frac{\frac{1}{N}\sum_{i=1}^{N} (x_i - \mu)^4}{\sigma^4}$ \\ 
@@ -207,11 +209,11 @@ where  $g(x)$ is the attention which corresponds to the process of attending to 
 \begin{equation}
 Q, K, V = \text{Linear}(x).
 \end{equation}
-Then compute attention scores with Softmax and scale factor $\sqrt{d_k}$:
+Then compute attention scores (ASs) with Softmax and scale factor $\sqrt{d_k}$:
    \begin{equation}
     g(x) = \mathrm{Softmax}(\frac{QK^T}{\sqrt{d_k}}).
    \end{equation}
-Finally, compute the output by combining the attention scores with the values:
+Finally, compute the output by combining the ASs with the values:
 \begin{equation}\label{attention}
 f(g(x), x) = g(x)V.
 \end{equation}
@@ -224,16 +226,16 @@ However, there is an urgent need for research on how to enhance the explainabili
 
 \subsection{The whole model}
 
-We developed an XOAN based on expert knowledge and attention mechanisms to dynamically learn and focus on specific knowledge, thereby enhancing the explainability of model. Specifically, Fig. \ref{fig XOAN} shows the key architecture of the XOAN. The input signal is composed of vibration signals that sensors monitor. The model includes several XOA blocks for signal processing and feature extraction. Within each XOA block, a customized DSOA is employed to dynamically learn and select the expert operator from EKD, providing researchers with feedback on the focus of expert knowledge through the Top-k sparse attention scores.
+We developed an XOAN based on expert knowledge and attention mechanisms to dynamically learn and focus on specific knowledge, thereby enhancing the explainability of model. Specifically, Fig. \ref{fig XOAN} shows the key architecture of the XOAN. The input signal is composed of signals that sensors monitor. The model includes several XOA blocks for signal processing and feature extraction. Within each XOA block, a customized DSOA is employed to dynamically learn and select the expert operator from EKD, providing researchers with feedback on the focus of expert knowledge through the Top-k sparse ASs.
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=0.9\linewidth]{Figs/Model.pdf}}
-\caption{The key architecture of XOAN. (a) The proposed XOAN is stacked by XOA block in a residual way, (b) XOA block use Normalization, channel linear layer and dynamic sparse operator attention to learn and select expert operator from expert knowledge dictionary, (c) The proposed DSOA use feature pool layer and FFN to learn the top k attention score.}
+\caption{The key architecture of XOAN. (a) The proposed XOAN is stacked by XOA block in a residual way, (b) XOA block use Normalization, channel linear layer and dynamic sparse operator attention to learn and select expert operator from EKD, (c) The proposed DSOA use feature pool layer and FFN to learn the top k AS.}
 \label{fig XOAN}
 \end{figure}
 
 \subsection{Dynamic Sparse Operator Attention}
-The input of DSOA is a tensor  $X$ with dimensions of batch size, sequence length, and number of channels denoted as $ B, L, C$, respectively. We propose a type of feature pooling as an extension of the average pooling layer, which can capture multidimensional statistical features of the signal when computing attention scores. Specifically, we utilize average pooling $\text{Avgpool}$ and variance pooling $\text{Varpool}$:
+The input of DSOA is a tensor  $X \in \mathbb{R}^{B \times C \times L}$ with dimensions of batch size, sequence length, and number of channels denoted as $ B, L, C$, respectively. We propose a type of feature pooling (FP) as an extension of the average pooling layer, which can capture multidimensional statistical features of the signal when computing ASs. Specifically, we utilize average pooling $\text{Avgpool}$ and variance pooling $\text{Varpool}$:
 \begin{equation}
     \text{Avgpool}(X_{b,c}) = \frac{1}{L} \sum_{i=1}^{L} X_{b,i,c},
 \end{equation}
@@ -245,7 +247,7 @@ The adaptive average pooling and variance pooling layers compress the signal of 
 \begin{equation}
     \mathrm{FFN}(X)=\max(0,XW_1+b_1)W_2+b_2.
 \end{equation}
-By merging the feature information, we obtain the preliminary attention scores (AS) as:
+By merging the feature information, we obtain the preliminary ASs as:
 \begin{equation}
     \text{AS}(X) =\mathrm{FFN}(\text{Avgpool}(X)) + \mathrm{FFN}(\text{Varpool}(X)) .
 \end{equation}
@@ -256,8 +258,7 @@ To enhance the explainability of model and identify a few crucial attentions for
 0 & \text{otherwise} .
 \end{array} \right.
 \end{equation}
-
-The AS play a crucial role in dynamically selecting the most relevant operators from the EKD. By computing the AS for each operator, the model can focus on the most important features for a given task. The AS is calculated using a combination of average pooling and variance pooling to learn the inter-channel dependencies. The top-k AS are then selected to ensure sparsity and highlight the most critical operators. This dynamic selection process allows the model to adaptively choose the best operators from the EKD, enhancing both the explainability and performance of the model.
+The AS play a crucial role in dynamically selecting the most relevant operators from the EKD, ensuring the model focuses on the most important features by computing and selecting the top-k AS, thereby enhancing both explainability and performance.
 
 \subsection{Expert knowledge dictionary}
 
@@ -276,31 +277,30 @@ With the aforementioned sequence of operators, we can construct $EKD_{SP}$ and $
 \begin{equation}
 \begin{split}
     EKD_{SP,FE} = 
-    {\{\mathcal{P}(OP_i): OP_i}\}_i^{N}, \quad OP_i \in \{SP, FE\}.
+    {\{\mathcal{P}(OP_i): OP_i}\}_i^{N}, \quad OP_i \in \{SP, FE\},
 \end{split}
 \end{equation}
-Here, $\mathcal{P}(OP_i)$ represents the semantic attributes or characteristics of operator $OP_i$. With these operators and their semantic attributes, an expert knowledge dictionary is constructed for signal processing and feature extraction operations, facilitating expert comprehension at a later stage.
+where $\mathcal{P}(OP_i)$ represents the semantic attributes or characteristics of operator $OP_i$. With these operators and their semantic attributes, an expert knowledge dictionary is constructed for signal processing and feature extraction operations, facilitating expert comprehension at a later stage.
 
-The selection of signal processing and feature extraction methods for constructing the EKD in this paper is based on their proven effectiveness and interpretability in the field of fault diagnosis \cite{liDeepExpertNetwork2024, leiApplicationsMachineLearning2020d}. The criteria for selecting these methods include:
+The selection of signal processing and feature extraction module for constructing the EKD in this paper is based on their proven effectiveness and interpretability in the field of fault diagnosis \cite{liDeepExpertNetwork2024, leiApplicationsMachineLearning2020d}. The criteria for selecting these methods include:
 
 \begin{itemize}
-    \item \textbf{Relevance to Fault Diagnosis}: The methods chosen should have direct applications in diagnosing faults in rotating machinery. This includes techniques like wavelet transform, Hilbert transform, and statistical feature extraction, which are widely used in the industry.
-    \item \textbf{Proven Effectiveness}: The methods should have demonstrated success in previous research and practical applications. This ensures that the EKD is built on reliable and validated techniques.
-    \item \textbf{Interpretability}: The selected methods should provide clear and understandable results that can be easily interpreted by experts. This is crucial for the explainability aspect of the model.
-
+    \item \textbf{Relevance to Fault Diagnosis}: The methods chosen should have direct applications in diagnosing faults in rotating machinery. This paper uses Eq. \ref{eq.FO} and Eq. \ref{eq.HT} for signal processing and statistical features in Table \ref{tab:feature sets} for feature extraction, which are commonly used in bearing fault diagnosis.
+    \item \textbf{Proven Effectiveness}: The module should have demonstrated success in previous research and practical applications. The goal of DSOA is to dynamically select the most relevant operators from the EKD, ensuring the model focuses on the most important features.
+    \item \textbf{Explainability}: The selected methods should provide clear and understandable results that can be easily interpreted by experts. This is crucial for the explainability aspect of the model.
 \end{itemize}
 
-While the methods included in the EKD represent a comprehensive set of existing expert knowledge, it is acknowledged that the field is continuously evolving, and new methods are being developed. Therefore, the EKD can also be updated to incorporate new advancements. let \( EKD_t \) be the EKD at time \( t \). As new methods \( OP_{new} \) are developed, they can be incorporated into the EKD as follows:
-\begin{equation}
-    EKD_{t+1} = EKD_t \cup \{ OP_{new} \},
-\end{equation}
-where \( \cup \) denotes the union of the existing EKD and the new methods. This ensures that the EKD remains up-to-date with the latest advancements in the field. The dynamic nature of the proposed model allows it to adapt and focus on the most relevant features, mitigating some of the risks associated with an evolving EKD. The significance of establishing the EKD lies in its ability to integrate domain expertise into the model, enhancing its interpretability and reliability. By leveraging expert knowledge, the model can provide more meaningful and trustworthy diagnostic results, which is crucial for industrial applications where decision-making based on AI models needs to be transparent and justifiable.
+% While the methods included in the EKD represent a comprehensive set of existing expert knowledge, it is acknowledged that the field is continuously evolving, and new methods are being developed. Therefore, the EKD can also be updated to incorporate new advancements. let \( EKD_t \) be the EKD at time \( t \). As new methods \( OP_{new} \) are developed, they can be incorporated into the EKD as follows:
+% \begin{equation}
+%     EKD_{t+1} = EKD_t \cup \{ OP_{new} \},
+% \end{equation}
+% where \( \cup \) denotes the union of the existing EKD and the new methods. This ensures that the EKD remains up-to-date with the latest advancements in the field. The dynamic nature of the proposed model allows it to adapt and focus on the most relevant features, mitigating some of the risks associated with an evolving EKD. The significance of establishing the EKD lies in its ability to integrate domain expertise into the model, enhancing its interpretability and reliability. By leveraging expert knowledge, the model can provide more meaningful and trustworthy diagnostic results, which is crucial for industrial applications where decision-making based on AI models needs to be transparent and justifiable.
 
 
 
 
 \subsection{XOA block }
-To utilize the adaptive selection module effectively, the initial step involves standardizing the signal scales of different channels. This process of standardization is a common practice in deep learning, aiming to normalize each channel independently:
+To utilize the DSAO effectively, the initial step involves standardizing the signal scales of different channels. This process of standardization is a common practice in deep learning, aiming to normalize each channel independently:
 \begin{equation}
 \tilde X = SN({X_c}) = \frac{{{X_c} - {\mu _c}}}{{\sqrt {\sigma _c^2 + \epsilon} }},
 \end{equation}
@@ -312,10 +312,10 @@ where $V \in \mathbb{R}^{B \times C \times L} $ and  $\text{AS}_{Top-k}(X_i, k) 
 \begin{equation}
     Y = \text{AS}_{Top-k}(X_i, k) \times  V
 \end{equation}
-where $\times$ represents element-wise multiplication across channels. This attention score can be understood as the focus on particular expert operators. Higher attention scores indicate a preference for selecting those operators, which holds significant implications for researchers in industrial applications. In this paper, we utilize four $XOA_{SP}$ blocks with  $EKD_{SP}$ and one $XOA_{FE}$ block with $EKD_{FE}$.
+where $\times$ represents element-wise multiplication across channels. This AS can be understood as the focus on particular expert operators. Higher ASs indicate a preference for selecting those operators, which holds significant implications for researchers in industrial applications. In this paper, we utilize four $XOA_{SP}$ blocks with  $EKD_{SP}$ and one $XOA_{FE}$ block with $EKD_{FE}$.
 
 \subsection{Optimization} 
-In general, for IFD, there are operators for signal processing and operators for feature extraction. In this context, the $EKD_{SP}$ module employs Eq. \ref{eq.FO} and Eq. \ref{eq.HT}, , while the $EKD_{FE}$ utilizes classical features in the feature sets in Table \ref{feature sets}. After extracting features $F$, a multiclass classification is performed using a Softmax classifier:
+In general, for IFD, there are operators for signal processing and operators for feature extraction. In this context, the $EKD_{SP}$ module employs Eq. \ref{eq.FO} and Eq. \ref{eq.HT}, , while the $EKD_{FE}$ utilizes classical features in the feature sets in Table \ref{tab:feature sets}. After extracting features $F$, a multiclass classification is performed using a Softmax classifier:
 \begin{align}
     Y = \text{Softmax}(W_{\sigma}{F})\label{classifier layer}.
 \end{align}
@@ -323,7 +323,7 @@ The loss function employed in this study is the classical cross-entropy (CE), de
 \begin{align}
     \mathcal{L}(P(y),{P_{W,\theta }}(\tilde y|x)) =  - \frac{1}{N} {\sum\limits_{i = 1}^N {P({y_i})\log {P_{W,\theta }}({{\tilde y}_i}|{x_i})} } 
 \end{align}
-where $W$ is the weight in the FFN and Channel Linear layer, $\theta$ is the parameters in the WFO respectively.  Then we apply the l1 norm of $W$ to induce sparsity across the entire connection as
+where $W$ is the weight in the FFN and channel linear layer, $\theta$ is the parameters in the WFO respectively.  Then we apply the l1 norm of $W$ to induce sparsity across the entire connection as
 \begin{align}
    \zeta (W) = ||W||_1.
 \end{align}
@@ -340,7 +340,7 @@ Therefore, the final optimization goal optimized by stochastic gradient decent  
 \subsubsection{Dataset 1: vibration and Piezoelectric signal}
 % \subsubsection{vibration and Piezoelectric signal}
 
-We employ a self-powered condition monitoring dataset obtained using a piezoelectric energy harvester in Fig. \ref{fig3} \cite{zhang_piezoelectric_2022}. The dataset contains voltage signals from four health conditions: normal (Nor), inner race fault (IF), ball fault (BF), and outer race fault (OF). The collected signals with 40960 Hz sampling frequency are downsampled to a 4096Hz and segmented at different time intervals to build 100 samples for each of the training set, validation set, and test set, respectively. Each sample has 4096 data points. In order to evaluate the performance of the XOAN model. Task \textbf{D1T1} involves training the model under the rotating frequency of 10Hz and testing it under the same frequency to assess its basic diagnostic capabilities. Task \textbf{D1T2} aims to evaluate the generalizability of the model trained by 1 Hz and 15 Hz and testing it under the rotating frequency of 10 Hz. 
+We employ a self-powered condition monitoring dataset obtained using a piezoelectric energy harvester in our lab as shown in Fig. \ref{fig3} \cite{zhang_piezoelectric_2022}. The dataset contains voltage signals from four health conditions: normal (Nor), inner race fault (IF), ball fault (BF), and outer race fault (OF). The collected signals with 40960 Hz sampling frequency are downsampled to a 4096Hz and segmented at different time intervals to build 100 samples for each of the training set, validation set, and test set, respectively. Each sample has 4096 data points. In order to evaluate the performance of the XOAN model. Task \textbf{D1T1} involves training the model under the rotating frequency of 10Hz and testing it under the same frequency to assess its basic diagnostic capabilities. Task \textbf{D1T2} aims to evaluate the generalizability of the model trained by 1 Hz and 15 Hz and testing it under the rotating frequency of 10 Hz. 
 
 % Task \textbf{D1T3} is designed to assess the robustness of models by introducing noise into the test signal at varying signal-to-noise ratios (SNR). 
 \begin{figure}[htbp]
@@ -419,7 +419,7 @@ In order to assess the performance of our model in terms of effectiveness, model
 % \subsection{Results and discussion}
 \subsubsection{Ablation study}
 
-Firstly, an ablation study is conducted to evaluate the effectiveness of the modules, as shown in Fig. \ref{fig:abalation}. The $x$-axis represents the learning rate $\lambda$, and the $y$-axis represents the L1-norm weight $\gamma$. It can be observed from Fig. \ref{fig:abalation} (a) that employing all components at $\lambda \in [1e-5,1e-1]$ and $\gamma \in [1e-5,1e-1]$ yields a good validation accuracy. Conversely, in Fig. \ref{fig:abalation} (b), without filter knowledge, the model requires more tuning to find suitable parameters. The training of the proposed XOA Block becomes more challenging in the absence of residual connections, as depicted in Fig. \ref{fig:abalation} (c). Without the knowledge of solving the envelope via the HT transform, subsequent features are harder to explore, as shown in Fig. \ref{fig:abalation} (d). Fig. \ref{fig:abalation} (e) indicates that if only Mean is used for information aggregation, similar to traditional deep learning networks, the model struggles to converge to good performance. Lastly, Fig. \ref{fig:abalation} (f) demonstrates the significant role played by Kurtosis.
+Firstly, an ablation study is conducted to evaluate the effectiveness of the modules in EKD and the different effect of hyperparameter, as shown in Fig. \ref{fig:abalation}. The $x$-axis represents the learning rate $\lambda$, and the $y$-axis represents the L1-norm weight $\gamma$. It can be observed from Fig. \ref{fig:abalation} (a) that employing all components at $\lambda \in [1e-5,1e-1]$ and $\gamma \in [1e-5,1e-1]$ yields a good validation accuracy. Conversely, in Fig. \ref{fig:abalation} (b), without filter knowledge, the model requires more tuning to find suitable parameters. The training of the proposed XOA Block becomes more challenging in the absence of residual connections, as depicted in Fig. \ref{fig:abalation} (c). Without the knowledge of solving the envelope via the HT transform, subsequent features are harder to explore, as shown in Fig. \ref{fig:abalation} (d). Fig. \ref{fig:abalation} (e) indicates that if only Mean is used for information aggregation, similar to traditional deep learning networks, the model struggles to converge to good performance. Lastly, Fig. \ref{fig:abalation} (f) demonstrates the significant role played by Kurtosis.
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=1.0\linewidth]{Figs/abalation.pdf}}
@@ -453,38 +453,38 @@ The XOAN method, with 34.37k parameters, demonstrates satisfactory performance w
 
 \subsubsection{Explainable insights}
 
-Fig. \ref{fig.attention_vis_1} to Fig. \ref{fig.attention_vis_15} illustrate attention scores at various levels under three distinct working conditions in the D1T2 task. These figures demonstrate that XOAN provides explainable insights by adaptively highlighting key channels and discriminative operator groups from EKD across different samples and categories. The distribution and accumulation of attention scores reveal the significant features that the model emphasizes, offering researchers valuable explainable information.
+Fig. \ref{fig.attention_vis_1} to Fig. \ref{fig.attention_vis_15} illustrate ASs at various levels under three distinct working conditions in the D1T2 task. These figures demonstrate that XOAN provides explainable insights by adaptively highlighting key channels and discriminative operator groups from EKD across different samples and categories. The distribution and accumulation of ASs reveal the significant features that the model emphasizes, offering researchers valuable explainable information.
 
 
 
 \textbf{Overall, the DSOA demonstrates adaptive attention towards explainable operators.}
-In Fig. \ref{fig.attention_vis_10} (a), the attention scores between different samples and various operator channels are displayed. The color intensity represents the attention score magnitude, with darker colors indicating higher scores and lighter colors indicating lower scores. This figure shows that different samples focus on different operator channels, demonstrating the model's ability to adaptively highlight significant operators for different samples. 
+In Fig. \ref{fig.attention_vis_10} (a), the ASs between different samples and various operator channels are displayed. The color intensity represents the AS magnitude, with darker colors indicating higher scores and lighter colors indicating lower scores. This figure shows that different samples focus on different operator channels, demonstrating the ability to adaptively highlight significant operators for different samples. 
 
 \textbf{Discriminative Operator Group Selection for Enhanced Classification.}
-Fig. \ref{fig.attention_vis_10} (b) shows the cumulative attention scores for different operator groups across various channels. These groups use one type of operator multiple times. Each row represents a sample, and each column represents an operator group. The consistent selection of certain operator groups across multiple samples indicates their significant contribution to the classification process. 
+Fig. \ref{fig.attention_vis_10} (b) shows the cumulative ASs for different operator groups across various channels. These groups use one type of operator multiple times. Each row represents a sample, and each column represents an operator group. The consistent selection of certain operator groups across multiple samples indicates their significant contribution to the classification process. 
 
 \textbf{Category-Specific Attention Patterns in Feature Channels.}
-Fig. \ref{fig.attention_vis_10} (c) depicts the cumulative attention scores for samples of the same bearing health condition across different operator channels. Each row corresponds to a category, and each column represents an operator channel. This figure illustrates that samples within the same category tend to have high cumulative scores in specific feature channels, indicating high discriminative power of these operators for that category.
+Fig. \ref{fig.attention_vis_10} (c) depicts the cumulative ASs for samples of the same bearing health condition across different operator channels. Each row corresponds to a category, and each column represents an operator channel. This figure illustrates that samples within the same category tend to have high cumulative scores in specific feature channels, indicating high discriminative power of these operators for that category.
 
 \textbf{Specific categories of signals exhibit specific preferences for interpretable operators.}
-Fig. \ref{fig.attention_vis_10} (d) shows the accumulated number of non-zero attention between different categories and operators. Each row represents a category, and each column represents an operator group, i.e., specific operators in Table \ref{feature sets}. This figure demonstrates that different categories tend to accumulate high scores in specific operator groups, highlighting the discriminative features for each category. 
+Fig. \ref{fig.attention_vis_10} (d) shows the accumulated number of non-zero attention between different categories and operators. Each row represents a category, and each column represents an operator group, i.e., specific operators in Table \ref{tab:feature sets}. This figure demonstrates that different categories tend to accumulate high scores in specific operator groups, highlighting the discriminative features for each category. 
 
 
 \begin{figure}[htbp] 
 \centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/AttentionFE_attnention1.pdf}}
-\caption{Attention scores of operators under 1Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
+\caption{ASs of operators under 1Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
 \label{fig.attention_vis_1}
 \end{figure}
 
 \begin{figure}[htbp] 
 \centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/AttentionFE_attnention10.pdf}}
-\caption{Attention scores of operators under 10Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
+\caption{ASs of operators under 10Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
 \label{fig.attention_vis_10}
 \end{figure}
 
 \begin{figure}[htbp] 
 \centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/AttentionFE_attnention15.pdf}}
-\caption{Attention scores of operators under 15Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
+\caption{ASs of operators under 15Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
 \label{fig.attention_vis_15}
 \end{figure}
 
@@ -501,7 +501,7 @@ Furthermore, after passing through multiple layers of $XOA_{SP}$ blocks, it is n
 
 \begin{figure}[htbp] 
 \centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/feature_case1_short.pdf}}
-\caption{t-SNE visualization shows the evolution of features across the network. The sequence includes the features of: (a) original signal, (b) signal prior to DSOA in the initial $XOA_{SP}$ block, (c) DSOA in the initial $XOA_{SP}$ block, (d) signal after DSOA in the initial $XOA_{SP}$ block, (e) signal before DSOA in the $XOA_{SP}$ block, (f) DSOA in the $XOA_{SP}$ block, (g) signal after DSOA in the $XOA_{SP}$ block, and (h) output signal.}
+\caption{t-SNE visualization shows the evolution of features across the network. The sequence includes the features of: (a) original signal, (b) signal prior to DSOA in the initial $XOA_{SP}$ block, (c) DSOA in the initial $XOA_{SP}$ block, (d) signal after DSOA in the initial $XOA_{SP}$ block, (e) signal before DSOA in the $XOA_{FE}$ block, (f) DSOA in the $XOA_{FE}$ block, (g) signal after DSOA in the $XOA_{FE}$ block, and (h) output signal.}
 \label{fig.feature_tsne}
 \end{figure}
 
@@ -510,19 +510,19 @@ Furthermore, after passing through multiple layers of $XOA_{SP}$ blocks, it is n
 
 % \subsubsection{basic} % TODO
 
-\begin{table}
-    \centering
-\caption{Diagnosis accuracy of D2T1,D2T2,D2T3.}
-\label{table.signaldomain}
-    \begin{tabular}{cclll} \hline  
-         Methods&    Parameters& Interpretability& D2T1 (\%)&D2T2 (\%)\\ \hline  
-         TIFN& \textbf{34.37k}& $\checkmark$& 100$\pm$0&\textbf{98.75$\pm$0.02}\\ 
-         M1& 384.64k& /& 100$\pm$0&52.38$\pm$4.17\\ 
-         M2& 384.55k& $\checkmark$& 100$\pm$0&50.34$\pm$23.34\\ \hline
- M3& 384.55k& $\checkmark$& 100$\pm$0&61.86$\pm$19.38\\
- M4& 87.00k& $\checkmark$& 100$\pm$0&96.05$\pm$2.77\\  \hline
-    \end{tabular}
-\end{table}
+% \begin{table}
+%     \centering
+% \caption{Diagnosis accuracy of D2T1,D2T2,D2T3.}
+% \label{table.signaldomain}
+%     \begin{tabular}{cclll} \hline  
+%          Methods&    Parameters& Interpretability& D2T1 (\%)&D2T2 (\%)\\ \hline  
+%          XOAN& \textbf{34.37k}& $\checkmark$& 100$\pm$0&\textbf{98.75$\pm$0.02}\\ 
+%          M1& 384.64k& /& 100$\pm$0&52.38$\pm$4.17\\ 
+%          M2& 384.55k& $\checkmark$& 100$\pm$0&50.34$\pm$23.34\\ \hline
+%  M3& 384.55k& $\checkmark$& 100$\pm$0&61.86$\pm$19.38\\
+%  M4& 87.00k& $\checkmark$& 100$\pm$0&96.05$\pm$2.77\\  \hline
+%     \end{tabular}
+% \end{table}
 
 \subsubsection{Diagnosis performance under noise attack} \label{c.snr_curve}
 
@@ -534,19 +534,19 @@ Fig. \ref{fig_noise} illustrates the performance comparison of different methods
 \label{fig_noise}
 \end{figure}
 
-\subsubsection{Attention score under noise attack} When observing the characteristics of attention in dynamic recognition models without noise in Fig. \ref{fig.attention_vis_case2}, it is evident that healthy samples exhibit low attention to features. Kurtosis emerges as a significant feature, particularly for identifying slight faults in the peak value and kurtosis of the IF fault. In cases of moderate faults in the IF, Variance, Entropy, and kurtosis play crucial roles. Moreover, for severe IF faults, Crest Factor and Clearance Factor are notably important features. In the context of faults in the OF fault, slight faults are notably valuable for Std and peak value. Moderate faults are characterized by standard deviation, entropy, Crest Factor, and Clearance Factor. Severe faults are distinguished by mean, peak value, Crest Factor, and Clearance Factor as key features.
+\subsubsection{AS under noise attack} When observing the characteristics of attention in dynamic recognition models without noise in Fig. \ref{fig.attention_vis_case2}, it is evident that healthy samples exhibit low attention to features. Kurtosis emerges as a significant feature, particularly for identifying slight faults in the peak value and kurtosis of the IF fault. In cases of moderate faults in the IF, Variance, Entropy, and kurtosis play crucial roles. Moreover, for severe IF faults, Crest Factor and Clearance Factor are notably important features. In the context of faults in the OF fault, slight faults are notably valuable for Std and peak value. Moderate faults are characterized by standard deviation, entropy, Crest Factor, and Clearance Factor. Severe faults are distinguished by mean, peak value, Crest Factor, and Clearance Factor as key features.
 Furthermore, in Fig. \ref{fig.attention_vis_case2_noise}, the model still maintains a relatively high accuracy. At this point, the model predominantly focuses on Kurtosis and clearance Factor as key features, indicating their strong noise robustness, which aligns with expert knowledge. Therefore, the proposed method effectively integrates expert knowledge and neural networks, enhancing the performance of model.
 
 \begin{figure}[htbp] 
 \centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention.pdf}}
-\caption{Attention score of features without noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
+\caption{AS of features without noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
 \label{fig.attention_vis_case2}
 \end{figure}
 
 
 \begin{figure}[htbp] 
 \centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention_noise.pdf}}
-\caption{Attention score of features with 0db noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
+\caption{AS of features with 0db noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
 \label{fig.attention_vis_case2_noise}
 \end{figure}
 
@@ -564,7 +564,7 @@ Future research will focus on expanding the EKD with criteria for selecting and 
 
 
 \bibliographystyle{IEEEtran}
-\bibliography{TII_nolink.bib}
+\bibliography{ref.bib}
 
 
 

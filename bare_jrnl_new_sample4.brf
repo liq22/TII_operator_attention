@@ -3,7 +3,7 @@
 \backcite {Li2023}{{1}{I}{section.1}}
 \backcite {Dong2023}{{1}{I}{section.1}}
 \backcite {Li2024}{{1}{I}{section.1}}
-\backcite {wang_coarse--fine_2023}{{1}{I}{section.1}}
+\backcite {henriquezReviewAutomaticFault2014, wang_coarse--fine_2023}{{1}{I}{section.1}}
 \backcite {lu_edge_2023}{{1}{\mbox {I-}1}{subsubsection.1.0.1}}
 \backcite {Lei2020}{{1}{\mbox {I-}1}{subsubsection.1.0.1}}
 \backcite {Yan2023}{{1}{\mbox {I-}1}{subsubsection.1.0.1}}
@@ -14,9 +14,11 @@
 \backcite {Hu2022}{{1}{\mbox {I-}2}{subsubsection.1.0.2}}
 \backcite {Li2023}{{1}{\mbox {I-}2}{subsubsection.1.0.2}}
 \backcite {Tang2022}{{1}{\mbox {I-}2}{subsubsection.1.0.2}}
-\backcite {deng_physics-informed_2023}{{2}{\mbox {I-}3}{subsubsection.1.0.3}}
-\backcite {qin_vwm-dcrnn_2023}{{2}{\mbox {I-}3}{subsubsection.1.0.3}}
-\backcite {ha_domain_2023}{{2}{\mbox {I-}3}{subsubsection.1.0.3}}
+\backcite {deng_physics-informed_2023}{{1}{\mbox {I-}3}{subsubsection.1.0.3}}
+\backcite {wangPhysicallyInterpretableWaveletguided2024}{{1}{\mbox {I-}3}{subsubsection.1.0.3}}
+\backcite {liWaveletKernelNetInterpretableDeep2020a}{{1}{\mbox {I-}3}{subsubsection.1.0.3}}
+\backcite {qin_vwm-dcrnn_2023}{{1}{\mbox {I-}3}{subsubsection.1.0.3}}
+\backcite {ha_domain_2023}{{1}{\mbox {I-}3}{subsubsection.1.0.3}}
 \backcite {su_knowledge-informed_2024}{{2}{\mbox {I-}3}{subsubsection.1.0.3}}
 \backcite {ni_physics-informed_2023}{{2}{\mbox {I-}3}{subsubsection.1.0.3}}
 \backcite {Li2024_TON}{{2}{\mbox {I-}3}{subsubsection.1.0.3}}
@@ -24,10 +26,11 @@
 \backcite {WORDEN20114}{{2}{\mbox {II-A}1}{subsubsection.2.1.1}}
 \backcite {Rui2024}{{2}{\mbox {II-A}1}{subsubsection.2.1.1}}
 \backcite {Li2024_TON}{{2}{\mbox {II-A}1}{equation.2.1}}
-\backcite {Randall2011}{{2}{\mbox {II-A}2}{subsubsection.2.1.2}}
+\backcite {Randall2011}{{3}{\mbox {II-A}2}{subsubsection.2.1.2}}
+\backcite {badihiComprehensiveReviewSignalBased2022a, leiApplicationsMachineLearning2020d}{{3}{\mbox {II-A}3}{subsubsection.2.1.3}}
 \backcite {guo_attention_2022}{{3}{\mbox {II-B}}{subsection.2.2}}
 \backcite {liDeepExpertNetwork2024, leiApplicationsMachineLearning2020d}{{4}{\mbox {III-C}}{equation.3.17}}
-\backcite {Kingma2015}{{5}{\mbox {III-E}}{equation.3.24}}
+\backcite {Kingma2015}{{5}{\mbox {III-E}}{equation.3.23}}
 \backcite {zhang_piezoelectric_2022}{{5}{\mbox {IV-A}1}{subsubsection.4.1.1}}
 \backcite {zhang_piezoelectric_2022}{{5}{3}{figure.3}}
 \backcite {Daga2019}{{5}{\mbox {IV-A}2}{subsubsection.4.1.2}}

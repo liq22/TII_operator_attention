@@ -41,6 +41,9 @@ J.~Dong, S.~Chen, M.~Miralinaghi, T.~Chen, P.~Li, and S.~Labi, ``{Why did the AI
 \bibitem{Li2024}
 M.~Li, P.~Peng, J.~Zhang, H.~Wang, and W.~Shen, ``{SCCAM: Supervised Contrastive Convolutional Attention Mechanism for Ante-Hoc Interpretable Fault Diagnosis With Limited Fault Samples},'' \emph{IEEE Transactions on Neural Networks and Learning Systems}, vol.~35, no.~5, pp. 6194--6205, 2024.
 
+\bibitem{henriquezReviewAutomaticFault2014}
+P.~Henriquez, J.~B. Alonso, M.~A. Ferrer, and C.~M. Travieso, ``Review of automatic fault diagnosis systems using audio and vibration signals,'' \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~44, no.~5, pp. 642--652, May 2014.
+
 \bibitem{wang_coarse--fine_2023}
 Y.~Wang, R.~Liu, D.~Lin, D.~Chen, P.~Li, Q.~Hu, and C.~L. Chen, ``{Coarse-to-Fine: Progressive Knowledge Transfer-Based Multitask Convolutional Neural Network for Intelligent Large-Scale Fault Diagnosis},'' \emph{IEEE Transactions on Neural Networks and Learning Systems}, vol.~34, no.~2, pp. 761--774, 2023.
 
@@ -83,6 +86,12 @@ J.~Tang, G.~Zheng, C.~Wei, W.~Huang, and X.~Ding, ``{Signal-Transformer: A Robus
 W.~Deng, K.~T. Nguyen, K.~Medjaher, C.~Gogu, and J.~Morio, ``Physics-informed machine learning in prognostics and health management: State of the art and challenges,'' \emph{Applied Mathematical Modelling}, vol. 124, pp. 325--352. [Online]. Available: \url{https://linkinghub.elsevier.com/retrieve/pii/S0307904X23003086}
 \BIBentrySTDinterwordspacing
 
+\bibitem{wangPhysicallyInterpretableWaveletguided2024}
+H.~Wang, Y.-F. Li, T.~Men, and L.~Li, ``Physically interpretable wavelet-guided networks with dynamic frequency decomposition for machine intelligence fault prediction,'' \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~54, no.~8, pp. 4863--4875, Aug. 2024.
+
+\bibitem{liWaveletKernelNetInterpretableDeep2020a}
+T.~Li, Z.~Zhao, C.~Sun, L.~Cheng, X.~Chen, R.~Yan, and R.~X. Gao, ``{{WaveletKernelNet}}: {{An}} interpretable deep neural network for industrial intelligent diagnosis,'' \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~52, no.~4, pp. 2302--2312, Dec. 2020.
+
 \bibitem{qin_vwm-dcrnn_2023}
 \BIBentryALTinterwordspacing
 N.~Qin, T.~Wang, D.~Huang, Y.~You, and Y.~Zhang, ``{VWM}-{DCRNN}: {A} {Method} of {Combining} {Signal} {Processing} {With} {Deep} {Learning} for {Fault} {Diagnosis} in {Single}-{Phase} {PWM} {Rectifier},'' \emph{IEEE Transactions on Power Electronics}, vol.~38, no.~7, pp. 8894--8906, Jul. 2023, conference Name: IEEE Transactions on Power Electronics. [Online]. Available: \url{https://ieeexplore.ieee.org/abstract/document/10089181}
@@ -119,6 +128,12 @@ K.~Worden, W.~J. Staszewski, and J.~J. Hensman, ``Natural computing for mechanic
 L.~Rui, X.~Ding, S.~Wu, Q.~Wu, and Y.~Shao, ``{Signal processing collaborated with deep learning: An interpretable FIRNet for industrial intelligent diagnosis},'' \emph{Mechanical Systems and Signal Processing}, vol. 212, no. March, p. 111314, 2024. [Online]. Available: \url{https://doi.org/10.1016/j.ymssp.2024.111314}
 \BIBentrySTDinterwordspacing
 
+\bibitem{badihiComprehensiveReviewSignalBased2022a}
+H.~Badihi, Y.~Zhang, B.~Jiang, P.~Pillay, and S.~Rakheja, ``A {{Comprehensive Review}} on {{Signal-Based}} and {{Model-Based Condition Monitoring}} of {{Wind Turbines}}: {{Fault Diagnosis}} and {{Lifetime Prognosis}},'' \emph{Proceedings of the IEEE}, vol. 110, no.~6, pp. 754--806, Jun. 2022.
+
+\bibitem{leiApplicationsMachineLearning2020d}
+Y.~Lei, B.~Yang, X.~Jiang, F.~Jia, N.~Li, and A.~K. Nandi, ``Applications of machine learning to machine fault diagnosis: {{A}} review and roadmap,'' \emph{Mechanical Systems and Signal Processing}, vol. 138, p. 106587, Apr. 2020.
+
 \bibitem{guo_attention_2022}
 \BIBentryALTinterwordspacing
 M.-H. Guo, T.-X. Xu, J.-J. Liu, Z.-N. Liu, P.-T. Jiang, T.-J. Mu, S.-H. Zhang, R.~R. Martin, M.-M. Cheng, and S.-M. Hu, ``Attention mechanisms in computer vision: A survey,'' \emph{Computational Visual Media}, vol.~8, no.~3, pp. 331--368. [Online]. Available: \url{https://link.springer.com/10.1007/s41095-022-0271-y}
@@ -126,9 +141,6 @@ M.-H. Guo, T.-X. Xu, J.-J. Liu, Z.-N. Liu, P.-T. Jiang, T.-J. Mu, S.-H. Zhang, R
 
 \bibitem{liDeepExpertNetwork2024}
 Q.~Li, Y.~Liu, S.~Sun, Z.~Qin, and F.~Chu, ``Deep expert network: {{A}} unified method toward knowledge-informed fault diagnosis via fully interpretable neuro-symbolic {{AI}},'' \emph{Journal of Manufacturing Systems}, vol.~77, pp. 652--661, Dec. 2024.
-
-\bibitem{leiApplicationsMachineLearning2020d}
-Y.~Lei, B.~Yang, X.~Jiang, F.~Jia, N.~Li, and A.~K. Nandi, ``Applications of machine learning to machine fault diagnosis: {{A}} review and roadmap,'' \emph{Mechanical Systems and Signal Processing}, vol. 138, p. 106587, Apr. 2020.
 
 \bibitem{Kingma2015}
 D.~P. Kingma and J.~L. Ba, ``{Adam: A method for stochastic optimization},'' \emph{3rd International Conference on Learning Representations, ICLR 2015 - Conference Track Proceedings}, pp. 1--15, 2015.
