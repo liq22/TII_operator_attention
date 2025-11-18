@@ -88,7 +88,7 @@ Intelligent fault diagnosis, operator attention, expert knowledge, signal proces
 Fault diagnosis serves an important role in pursuing the relationship between monitoring data and the health states of machines, which is a widely concerned issue in machine health management \cite{lu_edge_2023}. Diagnostic experts utilize their knowledge and tools to interpret these signals, leading to the diagnosis results that inform the health state of the machinery \cite{Lei2020}. Traditional fault diagnosis methods involve signal processing and feature extraction of monitoring data collected by sensors as shown in Fig. \ref{idea} (a).  These methods commonly involve wavelet transform \cite{Yan2023}, mode decomposition methods and feature extraction \cite{miao_feature_2023}. For instance,  Miao et al. \cite{miao_feature_2023} proposed a feature mode decomposition theory as feature extraction to decompose the different modes by the designed adaptive finite-impulse response filters guided by the correlated Kurtosis, where Kurtosis feature is suitable to detect transient abnormal signals in the presence of strong additive noise \cite{antoni_spectral_2006}. 
 
 \begin{figure}[htbp] 
-\centerline{\includegraphics[width=0.95\linewidth]{Figs/idea3.pdf}}
+\centerline{\includegraphics[width=0.95\linewidth]{figs/idea3.pdf}}
 \caption{The motivation of XOAN. (a) Traditional fault diagnosis with expert knowledge, (b) XOAN aims to incorporate expert knowledge into neural networks by employing operator attention to facilitate the learning process of selecting expert knowledge. }
 \label{idea}
 \end{figure}
@@ -229,7 +229,7 @@ However, there is an urgent need for research on how to enhance the explainabili
 We developed an XOAN based on expert knowledge and attention mechanisms to dynamically learn and focus on specific knowledge, thereby enhancing the explainability of model. Specifically, Fig. \ref{fig XOAN} shows the key architecture of the XOAN. The input signal is composed of signals that sensors monitor. The model includes several XOA blocks for signal processing and feature extraction. Within each XOA block, a customized DSOA is employed to dynamically learn and select the expert operator from EKD, providing researchers with feedback on the focus of expert knowledge through the Top-k sparse ASs.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.9\linewidth]{Figs/Model.pdf}}
+\centerline{\includegraphics[width=0.9\linewidth]{figs/Model.pdf}}
 \caption{The key architecture of XOAN. (a) The proposed XOAN is stacked by XOA block in a residual way, (b) XOA block use Normalization, channel linear layer and dynamic sparse operator attention to learn and select expert operator from EKD, (c) The proposed DSOA use feature pool layer and FFN to learn the top k AS.}
 \label{fig XOAN}
 \end{figure}
@@ -360,7 +360,7 @@ The experimental data used in case 2 was obtained from the rolling bearing test 
  % Task \textbf{D2T2} aims to evaluate the generalizability of the model by training it under the rotating frequency of 100,200,400,500 and testing it under the rotating frequency of 300Hz.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.65\linewidth]{Figs/DRIG_test_rig.pdf}}
+\centerline{\includegraphics[width=0.65\linewidth]{figs/DRIG_test_rig.pdf}}
 \caption{The bearing test rigs: a) a comprehensive overview of the test rig; b) the positions of the accelerometers and the reference system; c) the shaft fitted with three roller bearings. }
 \label{figDRIG}
 \end{figure}
@@ -422,7 +422,7 @@ In order to assess the performance of our model in terms of effectiveness, model
 Firstly, an ablation study is conducted to evaluate the effectiveness of the modules in EKD and the different effect of hyperparameter, as shown in Fig. \ref{fig:abalation}. The $x$-axis represents the learning rate $\lambda$, and the $y$-axis represents the L1-norm weight $\gamma$. It can be observed from Fig. \ref{fig:abalation} (a) that employing all components at $\lambda \in [1e-5,1e-1]$ and $\gamma \in [1e-5,1e-1]$ yields a good validation accuracy. Conversely, in Fig. \ref{fig:abalation} (b), without filter knowledge, the model requires more tuning to find suitable parameters. The training of the proposed XOA Block becomes more challenging in the absence of residual connections, as depicted in Fig. \ref{fig:abalation} (c). Without the knowledge of solving the envelope via the HT transform, subsequent features are harder to explore, as shown in Fig. \ref{fig:abalation} (d). Fig. \ref{fig:abalation} (e) indicates that if only Mean is used for information aggregation, similar to traditional deep learning networks, the model struggles to converge to good performance. Lastly, Fig. \ref{fig:abalation} (f) demonstrates the significant role played by Kurtosis.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=1.0\linewidth]{Figs/abalation.pdf}}
+\centerline{\includegraphics[width=1.0\linewidth]{figs/abalation.pdf}}
 \caption{The ablation study.(a) all component, (b) w/o  wavelet filter, (C) w/o residule connection, (D) w/o  HT (e) only Mean , (f)  only Kurtosis.}
 \label{fig:abalation}
 \end{figure}
@@ -471,19 +471,19 @@ Fig. \ref{fig.attention_vis_10} (d) shows the accumulated number of non-zero att
 
 
 \begin{figure}[htbp] 
-\centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/AttentionFE_attnention1.pdf}}
+\centerline{\includegraphics[width=1.0\linewidth]{figs/case1/AttentionFE_attnention1.pdf}}
 \caption{ASs of operators under 1Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
 \label{fig.attention_vis_1}
 \end{figure}
 
 \begin{figure}[htbp] 
-\centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/AttentionFE_attnention10.pdf}}
+\centerline{\includegraphics[width=1.0\linewidth]{figs/case1/AttentionFE_attnention10.pdf}}
 \caption{ASs of operators under 10Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
 \label{fig.attention_vis_10}
 \end{figure}
 
 \begin{figure}[htbp] 
-\centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/AttentionFE_attnention15.pdf}}
+\centerline{\includegraphics[width=1.0\linewidth]{figs/case1/AttentionFE_attnention15.pdf}}
 \caption{ASs of operators under 15Hz, (a) scores across samples and channels, (b) accumulated scores across samples and operators, (c) accumulated scores per category across samples and channels, (d) accumulated non-zero attention number across categories and operators.}
 \label{fig.attention_vis_15}
 \end{figure}
@@ -500,7 +500,7 @@ When examining the model with samples at 10Hz, which it had not seen before trai
 Furthermore, after passing through multiple layers of $XOA_{SP}$ blocks, it is noticeable in Fig. \ref{fig.feature_tsne} (e) that the distinguishability between inter-domains gradually increases; however, interference from domains has not been fully addressed. Encouragingly, in Fig. \ref{fig.feature_tsne} (f), DSOA effectively distinguishes different features for various operating conditions, aiding in extracting domain-invariant features, as demonstrated in Fig. \ref{fig.feature_tsne} (e). Finally, Fig. \ref{fig.feature_tsne} (h) depicts the output features, indicating that even without utilizing specific domain generalization strategies, domain-invariant features can still be extracted.
 
 \begin{figure}[htbp] 
-\centerline{\includegraphics[width=1.0\linewidth]{Figs/case1/feature_case1_short.pdf}}
+\centerline{\includegraphics[width=1.0\linewidth]{figs/case1/feature_case1_short.pdf}}
 \caption{t-SNE visualization shows the evolution of features across the network. The sequence includes the features of: (a) original signal, (b) signal prior to DSOA in the initial $XOA_{SP}$ block, (c) DSOA in the initial $XOA_{SP}$ block, (d) signal after DSOA in the initial $XOA_{SP}$ block, (e) signal before DSOA in the $XOA_{FE}$ block, (f) DSOA in the $XOA_{FE}$ block, (g) signal after DSOA in the $XOA_{FE}$ block, and (h) output signal.}
 \label{fig.feature_tsne}
 \end{figure}
@@ -529,7 +529,7 @@ Furthermore, after passing through multiple layers of $XOA_{SP}$ blocks, it is n
 Fig. \ref{fig_noise} illustrates the performance comparison of different methods in combating varying levels of noise. It can be observed that the proposed approach exhibits comparable performance to the M1, M3 and M4 methods under low noise conditions, approaching higher levels of accuracy. As the noise levels increase, the accuracy of all models is affected, leading to a decline. The proposed method, by integrating the interpretability of expert knowledge with the adaptability of neural networks, further enhances the robustness of the model.
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.95\linewidth]{Figs/case2/accuracy_vs_snr_case2.pdf}}
+\centerline{\includegraphics[width=0.95\linewidth]{figs/case2/accuracy_vs_snr_case2.pdf}}
 \caption{The robustness of different methods under different noise.}
 \label{fig_noise}
 \end{figure}
@@ -538,14 +538,14 @@ Fig. \ref{fig_noise} illustrates the performance comparison of different methods
 Furthermore, in Fig. \ref{fig.attention_vis_case2_noise}, the model still maintains a relatively high accuracy. At this point, the model predominantly focuses on Kurtosis and clearance Factor as key features, indicating their strong noise robustness, which aligns with expert knowledge. Therefore, the proposed method effectively integrates expert knowledge and neural networks, enhancing the performance of model.
 
 \begin{figure}[htbp] 
-\centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention.pdf}}
+\centerline{\includegraphics[width=1.0\linewidth]{figs/case2/AttentionFE_attnention.pdf}}
 \caption{AS of features without noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
 \label{fig.attention_vis_case2}
 \end{figure}
 
 
 \begin{figure}[htbp] 
-\centerline{\includegraphics[width=1.0\linewidth]{Figs/case2/AttentionFE_attnention_noise.pdf}}
+\centerline{\includegraphics[width=1.0\linewidth]{figs/case2/AttentionFE_attnention_noise.pdf}}
 \caption{AS of features with 0db noise, (a) Scores across samples and channels, (b) Accumulated scores across samples and operator, (c) Accumulated scores per category across samples and channels, (d) Accumulated scores across categories and operator.}
 \label{fig.attention_vis_case2_noise}
 \end{figure}

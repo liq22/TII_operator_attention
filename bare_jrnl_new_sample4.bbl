@@ -7,7 +7,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
@@ -21,150 +22,280 @@
 \BIBdecl
 
 \bibitem{Rong2024}
-Y.~Rong, T.~Leemann, T.~T. Nguyen, L.~Fiedler, P.~Qian, V.~Unhelkar, T.~Seidel, G.~Kasneci, and E.~Kasneci, ``{Towards Human-Centered Explainable AI: A Survey of User Studies for Model Explanations},'' \emph{IEEE Transactions on Pattern Analysis and Machine Intelligence}, vol.~46, no.~4, pp. 2104--2122, 2024.
+Y.~Rong, T.~Leemann, T.~T. Nguyen, L.~Fiedler, P.~Qian, V.~Unhelkar, T.~Seidel,
+  G.~Kasneci, and E.~Kasneci, ``{Towards Human-Centered Explainable AI: A
+  Survey of User Studies for Model Explanations},'' \emph{IEEE Transactions on
+  Pattern Analysis and Machine Intelligence}, vol.~46, no.~4, pp. 2104--2122,
+  2024.
 
 \bibitem{Holzinger2022}
 \BIBentryALTinterwordspacing
-A.~Holzinger, M.~Dehmer, F.~Emmert-Streib, R.~Cucchiara, I.~Augenstein, J.~D. Ser, W.~Samek, I.~Jurisica, and N.~D{\'{i}}az-Rodr{\'{i}}guez, ``{Information fusion as an integrative cross-cutting enabler to achieve robust, explainable, and trustworthy medical artificial intelligence},'' \emph{Information Fusion}, vol.~79, no. November 2021, pp. 263--278, 2022. [Online]. Available: \url{https://doi.org/10.1016/j.inffus.2021.10.007}
+A.~Holzinger, M.~Dehmer, F.~Emmert-Streib, R.~Cucchiara, I.~Augenstein, J.~D.
+  Ser, W.~Samek, I.~Jurisica, and N.~D{\'{i}}az-Rodr{\'{i}}guez, ``{Information
+  fusion as an integrative cross-cutting enabler to achieve robust,
+  explainable, and trustworthy medical artificial intelligence},''
+  \emph{Information Fusion}, vol.~79, no. November 2021, pp. 263--278, 2022.
+  [Online]. Available: \url{https://doi.org/10.1016/j.inffus.2021.10.007}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Li2023}
 \BIBentryALTinterwordspacing
-S.~Li, T.~Li, C.~Sun, R.~Yan, and X.~Chen, ``{Multilayer Grad-CAM: An effective tool towards explainable deep neural networks for intelligent fault diagnosis},'' \emph{Journal of Manufacturing Systems}, vol.~69, no. October 2022, pp. 20--30, 2023. [Online]. Available: \url{https://doi.org/10.1016/j.jmsy.2023.05.027}
+S.~Li, T.~Li, C.~Sun, R.~Yan, and X.~Chen, ``{Multilayer Grad-CAM: An effective
+  tool towards explainable deep neural networks for intelligent fault
+  diagnosis},'' \emph{Journal of Manufacturing Systems}, vol.~69, no. October
+  2022, pp. 20--30, 2023. [Online]. Available:
+  \url{https://doi.org/10.1016/j.jmsy.2023.05.027}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Dong2023}
 \BIBentryALTinterwordspacing
-J.~Dong, S.~Chen, M.~Miralinaghi, T.~Chen, P.~Li, and S.~Labi, ``{Why did the AI make that decision? Towards an explainable artificial intelligence (XAI) for autonomous driving systems},'' \emph{Transportation Research Part C: Emerging Technologies}, vol. 156, no. September, p. 104358, 2023. [Online]. Available: \url{https://doi.org/10.1016/j.trc.2023.104358}
+J.~Dong, S.~Chen, M.~Miralinaghi, T.~Chen, P.~Li, and S.~Labi, ``{Why did the
+  AI make that decision? Towards an explainable artificial intelligence (XAI)
+  for autonomous driving systems},'' \emph{Transportation Research Part C:
+  Emerging Technologies}, vol. 156, no. September, p. 104358, 2023. [Online].
+  Available: \url{https://doi.org/10.1016/j.trc.2023.104358}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Li2024}
-M.~Li, P.~Peng, J.~Zhang, H.~Wang, and W.~Shen, ``{SCCAM: Supervised Contrastive Convolutional Attention Mechanism for Ante-Hoc Interpretable Fault Diagnosis With Limited Fault Samples},'' \emph{IEEE Transactions on Neural Networks and Learning Systems}, vol.~35, no.~5, pp. 6194--6205, 2024.
+M.~Li, P.~Peng, J.~Zhang, H.~Wang, and W.~Shen, ``{SCCAM: Supervised
+  Contrastive Convolutional Attention Mechanism for Ante-Hoc Interpretable
+  Fault Diagnosis With Limited Fault Samples},'' \emph{IEEE Transactions on
+  Neural Networks and Learning Systems}, vol.~35, no.~5, pp. 6194--6205, 2024.
 
 \bibitem{henriquezReviewAutomaticFault2014}
-P.~Henriquez, J.~B. Alonso, M.~A. Ferrer, and C.~M. Travieso, ``Review of automatic fault diagnosis systems using audio and vibration signals,'' \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~44, no.~5, pp. 642--652, May 2014.
+P.~Henriquez, J.~B. Alonso, M.~A. Ferrer, and C.~M. Travieso, ``Review of
+  automatic fault diagnosis systems using audio and vibration signals,''
+  \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~44,
+  no.~5, pp. 642--652, May 2014.
 
 \bibitem{wang_coarse--fine_2023}
-Y.~Wang, R.~Liu, D.~Lin, D.~Chen, P.~Li, Q.~Hu, and C.~L. Chen, ``{Coarse-to-Fine: Progressive Knowledge Transfer-Based Multitask Convolutional Neural Network for Intelligent Large-Scale Fault Diagnosis},'' \emph{IEEE Transactions on Neural Networks and Learning Systems}, vol.~34, no.~2, pp. 761--774, 2023.
+Y.~Wang, R.~Liu, D.~Lin, D.~Chen, P.~Li, Q.~Hu, and C.~L. Chen,
+  ``{Coarse-to-Fine: Progressive Knowledge Transfer-Based Multitask
+  Convolutional Neural Network for Intelligent Large-Scale Fault Diagnosis},''
+  \emph{IEEE Transactions on Neural Networks and Learning Systems}, vol.~34,
+  no.~2, pp. 761--774, 2023.
 
 \bibitem{lu_edge_2023}
 \BIBentryALTinterwordspacing
-S.~Lu, J.~Lu, K.~An, X.~Wang, and Q.~He, ``Edge {Computing} on {IoT} for {Machine} {Signal} {Processing} and {Fault} {Diagnosis}: {A} {Review},'' \emph{IEEE Internet of Things Journal}, vol.~10, no.~13, pp. 11\,093--11\,116, Jul. 2023, conference Name: IEEE Internet of Things Journal. [Online]. Available: \url{https://ieeexplore.ieee.org/abstract/document/10026418}
+S.~Lu, J.~Lu, K.~An, X.~Wang, and Q.~He, ``Edge {Computing} on {IoT} for
+  {Machine} {Signal} {Processing} and {Fault} {Diagnosis}: {A} {Review},''
+  \emph{IEEE Internet of Things Journal}, vol.~10, no.~13, pp.
+  11\,093--11\,116, Jul. 2023, conference Name: IEEE Internet of Things
+  Journal. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/abstract/document/10026418}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Lei2020}
 \BIBentryALTinterwordspacing
-Y.~Lei, B.~Yang, X.~Jiang, F.~Jia, N.~Li, and A.~K. Nandi, ``{Applications of machine learning to machine fault diagnosis: A review and roadmap},'' \emph{Mechanical Systems and Signal Processing}, vol. 138, p. 106587, 2020. [Online]. Available: \url{https://doi.org/10.1016/j.ymssp.2019.106587}
+Y.~Lei, B.~Yang, X.~Jiang, F.~Jia, N.~Li, and A.~K. Nandi, ``{Applications of
+  machine learning to machine fault diagnosis: A review and roadmap},''
+  \emph{Mechanical Systems and Signal Processing}, vol. 138, p. 106587, 2020.
+  [Online]. Available: \url{https://doi.org/10.1016/j.ymssp.2019.106587}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Yan2023}
 \BIBentryALTinterwordspacing
-R.~Yan, Z.~Shang, H.~Xu, J.~Wen, Z.~Zhao, X.~Chen, and R.~X. Gao, ``{Wavelet transform for rotary machine fault diagnosis:10 years revisited},'' \emph{Mechanical Systems and Signal Processing}, vol. 200, no. January, p. 110545, 2023. [Online]. Available: \url{https://doi.org/10.1016/j.ymssp.2023.110545}
+R.~Yan, Z.~Shang, H.~Xu, J.~Wen, Z.~Zhao, X.~Chen, and R.~X. Gao, ``{Wavelet
+  transform for rotary machine fault diagnosis:10 years revisited},''
+  \emph{Mechanical Systems and Signal Processing}, vol. 200, no. January, p.
+  110545, 2023. [Online]. Available:
+  \url{https://doi.org/10.1016/j.ymssp.2023.110545}
 \BIBentrySTDinterwordspacing
 
 \bibitem{miao_feature_2023}
 \BIBentryALTinterwordspacing
-Y.~Miao, B.~Zhang, C.~Li, J.~Lin, and D.~Zhang, ``\BIBforeignlanguage{en}{Feature {Mode} {Decomposition}: {New} {Decomposition} {Theory} for {Rotating} {Machinery} {Fault} {Diagnosis}},'' \emph{\BIBforeignlanguage{en}{IEEE Transactions on Industrial Electronics}}, vol.~70, no.~2, pp. 1949--1960, Feb. 2023. [Online]. Available: \url{https://ieeexplore.ieee.org/document/9732251/}
+Y.~Miao, B.~Zhang, C.~Li, J.~Lin, and D.~Zhang,
+  ``\BIBforeignlanguage{en}{Feature {Mode} {Decomposition}: {New}
+  {Decomposition} {Theory} for {Rotating} {Machinery} {Fault} {Diagnosis}},''
+  \emph{\BIBforeignlanguage{en}{IEEE Transactions on Industrial Electronics}},
+  vol.~70, no.~2, pp. 1949--1960, Feb. 2023. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/9732251/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{antoni_spectral_2006}
 \BIBentryALTinterwordspacing
-J.~Antoni, ``\BIBforeignlanguage{en}{The spectral kurtosis: a useful tool for characterising non-stationary signals},'' \emph{\BIBforeignlanguage{en}{Mechanical Systems and Signal Processing}}, vol.~20, no.~2, pp. 282--307, Feb. 2006. [Online]. Available: \url{https://linkinghub.elsevier.com/retrieve/pii/S0888327004001517}
+J.~Antoni, ``\BIBforeignlanguage{en}{The spectral kurtosis: a useful tool for
+  characterising non-stationary signals},''
+  \emph{\BIBforeignlanguage{en}{Mechanical Systems and Signal Processing}},
+  vol.~20, no.~2, pp. 282--307, Feb. 2006. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0888327004001517}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Gao2021}
-D.~Gao, Y.~Zhu, Z.~Ren, K.~Yan, and W.~Kang, ``{A novel weak fault diagnosis method for rolling bearings based on LSTM considering quasi-periodicity},'' \emph{Knowledge-Based Systems}, vol. 231, nov 2021.
+D.~Gao, Y.~Zhu, Z.~Ren, K.~Yan, and W.~Kang, ``{A novel weak fault diagnosis
+  method for rolling bearings based on LSTM considering quasi-periodicity},''
+  \emph{Knowledge-Based Systems}, vol. 231, nov 2021.
 
 \bibitem{Hu2022}
-W.~Hu, ``{Generative Adversarial Imputation Network With Gradient Penalty for Rotating Machine Health Monitoring Under Signal Loss Condition},'' \emph{IEEE Transactions on Instrumentation and Measurement}, vol.~71, pp. 1--12, 2022.
+W.~Hu, ``{Generative Adversarial Imputation Network With Gradient Penalty for
+  Rotating Machine Health Monitoring Under Signal Loss Condition},'' \emph{IEEE
+  Transactions on Instrumentation and Measurement}, vol.~71, pp. 1--12, 2022.
 
 \bibitem{Tang2022}
-J.~Tang, G.~Zheng, C.~Wei, W.~Huang, and X.~Ding, ``{Signal-Transformer: A Robust and Interpretable Method for Rotating Machinery Intelligent Fault Diagnosis under Variable Operating Conditions},'' \emph{IEEE Transactions on Instrumentation and Measurement}, vol.~71, pp. 1--11, 2022.
+J.~Tang, G.~Zheng, C.~Wei, W.~Huang, and X.~Ding, ``{Signal-Transformer: A
+  Robust and Interpretable Method for Rotating Machinery Intelligent Fault
+  Diagnosis under Variable Operating Conditions},'' \emph{IEEE Transactions on
+  Instrumentation and Measurement}, vol.~71, pp. 1--11, 2022.
 
 \bibitem{deng_physics-informed_2023}
 \BIBentryALTinterwordspacing
-W.~Deng, K.~T. Nguyen, K.~Medjaher, C.~Gogu, and J.~Morio, ``Physics-informed machine learning in prognostics and health management: State of the art and challenges,'' \emph{Applied Mathematical Modelling}, vol. 124, pp. 325--352. [Online]. Available: \url{https://linkinghub.elsevier.com/retrieve/pii/S0307904X23003086}
+W.~Deng, K.~T. Nguyen, K.~Medjaher, C.~Gogu, and J.~Morio, ``Physics-informed
+  machine learning in prognostics and health management: State of the art and
+  challenges,'' \emph{Applied Mathematical Modelling}, vol. 124, pp. 325--352.
+  [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0307904X23003086}
 \BIBentrySTDinterwordspacing
 
 \bibitem{wangPhysicallyInterpretableWaveletguided2024}
-H.~Wang, Y.-F. Li, T.~Men, and L.~Li, ``Physically interpretable wavelet-guided networks with dynamic frequency decomposition for machine intelligence fault prediction,'' \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~54, no.~8, pp. 4863--4875, Aug. 2024.
+H.~Wang, Y.-F. Li, T.~Men, and L.~Li, ``Physically interpretable wavelet-guided
+  networks with dynamic frequency decomposition for machine intelligence fault
+  prediction,'' \emph{IEEE Transactions on Systems, Man, and Cybernetics:
+  Systems}, vol.~54, no.~8, pp. 4863--4875, Aug. 2024.
 
 \bibitem{liWaveletKernelNetInterpretableDeep2020a}
-T.~Li, Z.~Zhao, C.~Sun, L.~Cheng, X.~Chen, R.~Yan, and R.~X. Gao, ``{{WaveletKernelNet}}: {{An}} interpretable deep neural network for industrial intelligent diagnosis,'' \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~52, no.~4, pp. 2302--2312, Dec. 2020.
+T.~Li, Z.~Zhao, C.~Sun, L.~Cheng, X.~Chen, R.~Yan, and R.~X. Gao,
+  ``{{WaveletKernelNet}}: {{An}} interpretable deep neural network for
+  industrial intelligent diagnosis,'' \emph{IEEE Transactions on Systems, Man,
+  and Cybernetics: Systems}, vol.~52, no.~4, pp. 2302--2312, Dec. 2020.
 
 \bibitem{qin_vwm-dcrnn_2023}
 \BIBentryALTinterwordspacing
-N.~Qin, T.~Wang, D.~Huang, Y.~You, and Y.~Zhang, ``{VWM}-{DCRNN}: {A} {Method} of {Combining} {Signal} {Processing} {With} {Deep} {Learning} for {Fault} {Diagnosis} in {Single}-{Phase} {PWM} {Rectifier},'' \emph{IEEE Transactions on Power Electronics}, vol.~38, no.~7, pp. 8894--8906, Jul. 2023, conference Name: IEEE Transactions on Power Electronics. [Online]. Available: \url{https://ieeexplore.ieee.org/abstract/document/10089181}
+N.~Qin, T.~Wang, D.~Huang, Y.~You, and Y.~Zhang, ``{VWM}-{DCRNN}: {A} {Method}
+  of {Combining} {Signal} {Processing} {With} {Deep} {Learning} for {Fault}
+  {Diagnosis} in {Single}-{Phase} {PWM} {Rectifier},'' \emph{IEEE Transactions
+  on Power Electronics}, vol.~38, no.~7, pp. 8894--8906, Jul. 2023, conference
+  Name: IEEE Transactions on Power Electronics. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/abstract/document/10089181}
 \BIBentrySTDinterwordspacing
 
 \bibitem{ha_domain_2023}
 \BIBentryALTinterwordspacing
-J.~M. Ha and O.~Fink, ``Domain knowledge-informed synthetic fault sample generation with health data map for cross-domain planetary gearbox fault diagnosis,'' \emph{Mechanical Systems and Signal Processing}, vol. 202, p. 110680. [Online]. Available: \url{https://linkinghub.elsevier.com/retrieve/pii/S0888327023005885}
+J.~M. Ha and O.~Fink, ``Domain knowledge-informed synthetic fault sample
+  generation with health data map for cross-domain planetary gearbox fault
+  diagnosis,'' \emph{Mechanical Systems and Signal Processing}, vol. 202, p.
+  110680. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0888327023005885}
 \BIBentrySTDinterwordspacing
 
 \bibitem{su_knowledge-informed_2024}
 \BIBentryALTinterwordspacing
-Y.~Su, L.~Shi, K.~Zhou, G.~Bai, and Z.~Wang, ``Knowledge-informed deep networks for robust fault diagnosis of rolling bearings,'' \emph{Reliability Engineering \& System Safety}, vol. 244, p. 109863. [Online]. Available: \url{https://linkinghub.elsevier.com/retrieve/pii/S0951832023007779}
+Y.~Su, L.~Shi, K.~Zhou, G.~Bai, and Z.~Wang, ``Knowledge-informed deep networks
+  for robust fault diagnosis of rolling bearings,'' \emph{Reliability
+  Engineering \& System Safety}, vol. 244, p. 109863. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0951832023007779}
 \BIBentrySTDinterwordspacing
 
 \bibitem{ni_physics-informed_2023}
 \BIBentryALTinterwordspacing
-Q.~Ni, J.~Ji, B.~Halkon, K.~Feng, and A.~K. Nandi, ``Physics-informed residual network ({PIResNet}) for rolling element bearing fault diagnostics,'' \emph{Mechanical Systems and Signal Processing}, vol. 200, p. 110544. [Online]. Available: \url{https://linkinghub.elsevier.com/retrieve/pii/S0888327023004521}
+Q.~Ni, J.~Ji, B.~Halkon, K.~Feng, and A.~K. Nandi, ``Physics-informed residual
+  network ({PIResNet}) for rolling element bearing fault diagnostics,''
+  \emph{Mechanical Systems and Signal Processing}, vol. 200, p. 110544.
+  [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0888327023004521}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Li2024_TON}
-Q.~Li, H.~Li, W.~Hu, S.~Sun, Z.~Qin, and F.~Chu, ``{Transparent Operator Network: A Fully Interpretable Network Incorporating Learnable Wavelet Operator for Intelligent Fault Diagnosis},'' \emph{IEEE Transactions on Industrial Informatics}, vol.~20, no.~6, pp. 8628--8638, 2024.
+Q.~Li, H.~Li, W.~Hu, S.~Sun, Z.~Qin, and F.~Chu, ``{Transparent Operator
+  Network: A Fully Interpretable Network Incorporating Learnable Wavelet
+  Operator for Intelligent Fault Diagnosis},'' \emph{IEEE Transactions on
+  Industrial Informatics}, vol.~20, no.~6, pp. 8628--8638, 2024.
 
 \bibitem{Randall2011}
-R.~B. Randall and J.~Antoni, ``{Rolling element bearing diagnostics-A tutorial},'' \emph{Mechanical Systems and Signal Processing}, vol.~25, no.~2, pp. 485--520, 2011.
+R.~B. Randall and J.~Antoni, ``{Rolling element bearing diagnostics-A
+  tutorial},'' \emph{Mechanical Systems and Signal Processing}, vol.~25, no.~2,
+  pp. 485--520, 2011.
 
 \bibitem{WORDEN20114}
 \BIBentryALTinterwordspacing
-K.~Worden, W.~J. Staszewski, and J.~J. Hensman, ``Natural computing for mechanical systems research: A tutorial overview,'' \emph{Mechanical Systems and Signal Processing}, vol.~25, no.~1, pp. 4--111, 2011. [Online]. Available: \url{https://www.sciencedirect.com/science/article/pii/S0888327010002499}
+K.~Worden, W.~J. Staszewski, and J.~J. Hensman, ``Natural computing for
+  mechanical systems research: A tutorial overview,'' \emph{Mechanical Systems
+  and Signal Processing}, vol.~25, no.~1, pp. 4--111, 2011. [Online].
+  Available:
+  \url{https://www.sciencedirect.com/science/article/pii/S0888327010002499}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Rui2024}
 \BIBentryALTinterwordspacing
-L.~Rui, X.~Ding, S.~Wu, Q.~Wu, and Y.~Shao, ``{Signal processing collaborated with deep learning: An interpretable FIRNet for industrial intelligent diagnosis},'' \emph{Mechanical Systems and Signal Processing}, vol. 212, no. March, p. 111314, 2024. [Online]. Available: \url{https://doi.org/10.1016/j.ymssp.2024.111314}
+L.~Rui, X.~Ding, S.~Wu, Q.~Wu, and Y.~Shao, ``{Signal processing collaborated
+  with deep learning: An interpretable FIRNet for industrial intelligent
+  diagnosis},'' \emph{Mechanical Systems and Signal Processing}, vol. 212, no.
+  March, p. 111314, 2024. [Online]. Available:
+  \url{https://doi.org/10.1016/j.ymssp.2024.111314}
 \BIBentrySTDinterwordspacing
 
 \bibitem{badihiComprehensiveReviewSignalBased2022a}
-H.~Badihi, Y.~Zhang, B.~Jiang, P.~Pillay, and S.~Rakheja, ``A {{Comprehensive Review}} on {{Signal-Based}} and {{Model-Based Condition Monitoring}} of {{Wind Turbines}}: {{Fault Diagnosis}} and {{Lifetime Prognosis}},'' \emph{Proceedings of the IEEE}, vol. 110, no.~6, pp. 754--806, Jun. 2022.
+H.~Badihi, Y.~Zhang, B.~Jiang, P.~Pillay, and S.~Rakheja, ``A {{Comprehensive
+  Review}} on {{Signal-Based}} and {{Model-Based Condition Monitoring}} of
+  {{Wind Turbines}}: {{Fault Diagnosis}} and {{Lifetime Prognosis}},''
+  \emph{Proceedings of the IEEE}, vol. 110, no.~6, pp. 754--806, Jun. 2022.
 
 \bibitem{leiApplicationsMachineLearning2020d}
-Y.~Lei, B.~Yang, X.~Jiang, F.~Jia, N.~Li, and A.~K. Nandi, ``Applications of machine learning to machine fault diagnosis: {{A}} review and roadmap,'' \emph{Mechanical Systems and Signal Processing}, vol. 138, p. 106587, Apr. 2020.
+Y.~Lei, B.~Yang, X.~Jiang, F.~Jia, N.~Li, and A.~K. Nandi, ``Applications of
+  machine learning to machine fault diagnosis: {{A}} review and roadmap,''
+  \emph{Mechanical Systems and Signal Processing}, vol. 138, p. 106587, Apr.
+  2020.
 
 \bibitem{guo_attention_2022}
 \BIBentryALTinterwordspacing
-M.-H. Guo, T.-X. Xu, J.-J. Liu, Z.-N. Liu, P.-T. Jiang, T.-J. Mu, S.-H. Zhang, R.~R. Martin, M.-M. Cheng, and S.-M. Hu, ``Attention mechanisms in computer vision: A survey,'' \emph{Computational Visual Media}, vol.~8, no.~3, pp. 331--368. [Online]. Available: \url{https://link.springer.com/10.1007/s41095-022-0271-y}
+M.-H. Guo, T.-X. Xu, J.-J. Liu, Z.-N. Liu, P.-T. Jiang, T.-J. Mu, S.-H. Zhang,
+  R.~R. Martin, M.-M. Cheng, and S.-M. Hu, ``Attention mechanisms in computer
+  vision: A survey,'' \emph{Computational Visual Media}, vol.~8, no.~3, pp.
+  331--368. [Online]. Available:
+  \url{https://link.springer.com/10.1007/s41095-022-0271-y}
 \BIBentrySTDinterwordspacing
 
 \bibitem{liDeepExpertNetwork2024}
-Q.~Li, Y.~Liu, S.~Sun, Z.~Qin, and F.~Chu, ``Deep expert network: {{A}} unified method toward knowledge-informed fault diagnosis via fully interpretable neuro-symbolic {{AI}},'' \emph{Journal of Manufacturing Systems}, vol.~77, pp. 652--661, Dec. 2024.
+Q.~Li, Y.~Liu, S.~Sun, Z.~Qin, and F.~Chu, ``Deep expert network: {{A}} unified
+  method toward knowledge-informed fault diagnosis via fully interpretable
+  neuro-symbolic {{AI}},'' \emph{Journal of Manufacturing Systems}, vol.~77,
+  pp. 652--661, Dec. 2024.
 
 \bibitem{Kingma2015}
-D.~P. Kingma and J.~L. Ba, ``{Adam: A method for stochastic optimization},'' \emph{3rd International Conference on Learning Representations, ICLR 2015 - Conference Track Proceedings}, pp. 1--15, 2015.
+D.~P. Kingma and J.~L. Ba, ``{Adam: A method for stochastic optimization},''
+  \emph{3rd International Conference on Learning Representations, ICLR 2015 -
+  Conference Track Proceedings}, pp. 1--15, 2015.
 
 \bibitem{zhang_piezoelectric_2022}
-L.~Zhang, F.~Zhang, Z.~Qin, Q.~Han, T.~Wang, and F.~Chu, ``\BIBforeignlanguage{en}{Piezoelectric energy harvester for rolling bearings with capability of self-powered condition monitoring},'' \emph{\BIBforeignlanguage{en}{Energy}}, vol. 238, p. 121770, Jan. 2022.
+L.~Zhang, F.~Zhang, Z.~Qin, Q.~Han, T.~Wang, and F.~Chu,
+  ``\BIBforeignlanguage{en}{Piezoelectric energy harvester for rolling bearings
+  with capability of self-powered condition monitoring},''
+  \emph{\BIBforeignlanguage{en}{Energy}}, vol. 238, p. 121770, Jan. 2022.
 
 \bibitem{Daga2019}
 \BIBentryALTinterwordspacing
-A.~P. Daga, A.~Fasana, S.~Marchesiello, and L.~Garibaldi, ``{The Politecnico di Torino rolling bearing test rig: Description and analysis of open access data},'' \emph{Mechanical Systems and Signal Processing}, vol. 120, pp. 252--273, 2019. [Online]. Available: \url{https://doi.org/10.1016/j.ymssp.2018.10.010}
+A.~P. Daga, A.~Fasana, S.~Marchesiello, and L.~Garibaldi, ``{The Politecnico di
+  Torino rolling bearing test rig: Description and analysis of open access
+  data},'' \emph{Mechanical Systems and Signal Processing}, vol. 120, pp.
+  252--273, 2019. [Online]. Available:
+  \url{https://doi.org/10.1016/j.ymssp.2018.10.010}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Wang2020}
-X.~Wang, C.~Shen, M.~Xia, D.~Wang, J.~Zhu, and Z.~Zhu, ``{Multi-scale deep intra-class transfer learning for bearing fault diagnosis},'' \emph{Reliability Engineering and System Safety}, vol. 202, p. 107050, oct 2020.
+X.~Wang, C.~Shen, M.~Xia, D.~Wang, J.~Zhu, and Z.~Zhu, ``{Multi-scale deep
+  intra-class transfer learning for bearing fault diagnosis},''
+  \emph{Reliability Engineering and System Safety}, vol. 202, p. 107050, oct
+  2020.
 
 \bibitem{liu_sinc-based_2023}
 \BIBentryALTinterwordspacing
-R.~Liu, X.~Ding, S.~Liu, Q.~Wu, and Y.~Shao, ``\BIBforeignlanguage{en}{Sinc-{Based} {Multiplication}-{Convolution} {Network} for {Small}-{Sample} {Fault} {Diagnosis} and {Edge} {Application}},'' \emph{\BIBforeignlanguage{en}{IEEE Transactions on Instrumentation and Measurement}}, vol.~72, pp. 1--12, 2023. [Online]. Available: \url{https://ieeexplore.ieee.org/document/10266990/}
+R.~Liu, X.~Ding, S.~Liu, Q.~Wu, and Y.~Shao,
+  ``\BIBforeignlanguage{en}{Sinc-{Based} {Multiplication}-{Convolution}
+  {Network} for {Small}-{Sample} {Fault} {Diagnosis} and {Edge}
+  {Application}},'' \emph{\BIBforeignlanguage{en}{IEEE Transactions on
+  Instrumentation and Measurement}}, vol.~72, pp. 1--12, 2023. [Online].
+  Available: \url{https://ieeexplore.ieee.org/document/10266990/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Li2022}
-T.~Li, Z.~Zhao, C.~Sun, L.~Cheng, X.~Chen, R.~Yan, and R.~X. Gao, ``{WaveletKernelNet: An Interpretable Deep Neural Network for Industrial Intelligent Diagnosis},'' \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems}, vol.~52, no.~4, pp. 2302--2312, 2022.
+T.~Li, Z.~Zhao, C.~Sun, L.~Cheng, X.~Chen, R.~Yan, and R.~X. Gao,
+  ``{WaveletKernelNet: An Interpretable Deep Neural Network for Industrial
+  Intelligent Diagnosis},'' \emph{IEEE Transactions on Systems, Man, and
+  Cybernetics: Systems}, vol.~52, no.~4, pp. 2302--2312, 2022.
 
 \bibitem{Wang2023}
-F.~Wang, Z.~Zhao, Z.~Zhai, Z.~Shang, R.~Yan, and X.~Chen, ``{Explainability-driven model improvement for SOH estimation of lithium-ion battery},'' \emph{Reliability Engineering and System Safety}, vol. 232, no. September 2022, 2023.
+F.~Wang, Z.~Zhao, Z.~Zhai, Z.~Shang, R.~Yan, and X.~Chen,
+  ``{Explainability-driven model improvement for SOH estimation of lithium-ion
+  battery},'' \emph{Reliability Engineering and System Safety}, vol. 232, no.
+  September 2022, 2023.
 
 \end{thebibliography}
