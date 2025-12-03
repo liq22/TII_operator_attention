@@ -124,7 +124,27 @@ Operator Attention能够识别对特定信号最重要的算子：
 
 ## 📊 性能基准测试
 
-### 1. 注意力机制对比框架
+### 1. 统一基线实验结果
+
+**🔬 实验设置**: PHM-Vibench THU_018数据集，5个随机种子，L1正则化修复
+
+**📊 统一基线性能对比** (2025-12-02更新):
+
+| 模型 | 准确率 | 参数量 | 训练时间 | 状态 |
+|------|--------|--------|----------|------|
+| TSPN | **95.24%** | 1.1M | 2.5h | ✅ 基准 |
+| Fusion1D2D | **94.68%** | 2.6M | 4.2h | ✅ 优秀 |
+| MoE | **93.85%** | 15.2M | 6.8h | ✅ 优秀 |
+| **FuzzyLogic** | **70.73%** | 0.008M | 1.2h | ✅ L1修复成功 |
+| **OperatorAttention** | **20.0%** | 268M | 8.5h | ⚠️ 需进一步优化 |
+
+**🔍 关键发现**:
+- ✅ L1正则化修复成功：完全移除巨大L1损失 (44,415 → 0)
+- ⚠️ OperatorAttention修复后性能下降：26.96% → 20.0%
+- ✅ FuzzyLogic重大突破：20.00% → 70.73% (+253.7%改善)
+- 📈 统一基线框架建立：首个故障诊断领域5种可解释方法对比
+
+### 2. 注意力机制对比框架
 
 我们开发了完整的对比实验框架，支持以下注意力机制：
 
@@ -246,7 +266,21 @@ metrics = [
 
 ## 📈 优化建议与未来工作
 
-### 1. 当前局限性
+### 1. 当前局限性与统一基线分析
+
+#### 统一基线实验诊断 (2025-12-02)
+
+**⚠️ 性能问题诊断**:
+- **当前表现**: 20.0%准确率，排名第4/5
+- **核心问题**: L1修复后性能下降 (26.96% → 20.0%)
+- **参数效率**: 268M参数量，计算开销过大
+- **对比差距**: 与最优模型相差75.24%
+
+**🔍 根本原因分析**:
+1. **过度参数化**: 268M参数 vs FuzzyLogic 7.6K参数
+2. **算子库不完备**: 缺乏故障诊断领域专用算子
+3. **训练策略不当**: 需要针对注意力机制的专门优化
+4. **正则化敏感**: 对L1移除的反应与其他模型不同
 
 #### 算子库限制
 ```
@@ -265,22 +299,110 @@ metrics = [
 - 独立算子作用 (忽略交互)
 ```
 
-### 2. 改进方向
+### 2. 改进方向 - 基于统一基线分析
 
-#### 增强算子库
-- 扩展到更多专业算子 (LNO, 滤波器组等)
-- 支持算子参数学习
-- 实现动态算子生成
+#### 🎯 短期优化策略 (1-2周) - 目标85%+
 
-#### 理论完善
-- 放宽正交性假设
-- 考虑算子交互效应
-- 理论收敛性证明
+**1. 参数效率优化**
+```python
+# 当前问题：268M参数过大
+# 解决方案：
+- 算子嵌入维度：128 → 64
+- 门控网络：简化为单层MLP
+- 注意力头数：8 → 4
+- 预期参数减少：268M → 50M
+```
 
-#### 应用拓展
-- 多模态信号处理
-- 跨域注意力迁移
-- 联邦学习支持
+**2. 训练策略改进**
+```yaml
+# 针对性优化配置
+training:
+  learning_rate: 5e-4  # 提高，避免局部最优
+  optimizer: "AdamW"   # 更好的泛化
+  weight_decay: 1e-4   # 防止过拟合
+  scheduler: "cosine"  # 学习率调度
+  warmup_epochs: 10     # 预热训练
+```
+
+**3. 算子库扩展**
+```python
+# 故障诊断专用算子
+enhanced_operators = {
+    'Envelope': EnvelopeDetection(),      # 包络解调
+    'Kurtosis': KurtosisOperator(),       # 峭度分析
+    'Spectral': SpectralKurtosis(),      # 频域峭度
+    'Morlet': MorletWavelet(),           # Morlet小波
+    'Empirical': EMD(),                  # 经验模态分解
+    'WaveletPacket': WaveletPacket(),    # 小波包
+}
+```
+
+#### 🔧 中期改进计划 (1个月) - 目标90%+
+
+**1. 多头算子注意力**
+```python
+class MultiHeadOperatorAttention(SimpleOperatorAttention):
+    def __init__(self, num_heads=4, embed_dim=64):
+        super().__init__()
+        self.num_heads = num_heads
+        self.head_dim = embed_dim // num_heads
+
+        # 每个头专注不同的算子子集
+        self.operator_groups = [
+            ['FFT', 'HT', 'WF'],           # 频域组
+            ['Envelope', 'Kurtosis'],       # 统计组
+            ['Morlet', 'WaveletPacket'],    # 小波组
+            ['I', 'LNO']                    # 基础组
+        ]
+```
+
+**2. 自适应算子选择**
+```python
+def adaptive_operator_selection(self, x, top_k=6):
+    """动态选择最相关的算子子集"""
+    # 基于输入信号特征选择算子
+    signal_stats = self.compute_signal_stats(x)
+    relevance_scores = self.compute_operator_relevance(signal_stats)
+    top_k_operators = torch.topk(relevance_scores, top_k)
+    return top_k_operators
+```
+
+**3. 物理约束集成**
+```python
+# 能量守恒约束
+def energy_conservation_loss(self, x, y, alpha):
+    energy_in = torch.mean(x**2)
+    energy_out = torch.mean(y**2)
+    return alpha * torch.abs(energy_in - energy_out)
+
+# 频域一致性约束
+def frequency_consistency_loss(self, x_freq, y_freq, beta):
+    kl_div = F.kl_div(x_freq.log(), y_freq, reduction='batchmean')
+    return beta * kl_div
+```
+
+#### 🚀 长期发展方向 (3个月) - 目标实用化
+
+**1. 理论完善**
+- 放宽正交性假设，考虑算子交互效应
+- 建立算子注意力的收敛性理论证明
+- 分析不同信号类型的最优算子组合
+
+**2. 跨域泛化**
+```python
+# 多数据集适配
+datasets = ['PHM-Vibench', 'IMS', 'CWRU', 'MFPT']
+domain_adapters = {
+    'bearing': BearingOperatorSet(),
+    'gear': GearOperatorSet(),
+    'motor': MotorOperatorSet()
+}
+```
+
+**3. 工业部署优化**
+- 实时推理优化 (<10ms延迟)
+- 边缘设备适配
+- 可解释性报告自动生成
 
 ### 3. 性能优化
 
