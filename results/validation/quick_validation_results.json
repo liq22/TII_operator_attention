@@ -1,0 +1,24 @@
+{
+  "total_tests": 10,
+  "passed_tests": 2,
+  "pass_rate": 20.0,
+  "operator_dominance": {
+    "FFT": 3,
+    "HT": 1,
+    "WF": 3,
+    "I": 3
+  },
+  "detailed_results": [
+    {
+      "signal_type": "single_frequency",
+      "frequency": 10,
+      "operator_weights": {
+        "FFT": 0.2808789312839508,
+        "HT": 0.2772808372974396,
+        "WF": 0.2217438817024231,
+        "I": 0.22009634971618652
+      },
+      "dominant_operator": "FFT",
+      "fft_weight": 0.2808789312839508,
+      "expected_fft_weight": 0.8,
+      "passed": 
