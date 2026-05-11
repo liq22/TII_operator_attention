@@ -8,6 +8,8 @@ must still be run on the accepted industrial datasets with the same split,
 seed protocol, metrics, preprocessing, and local GPU metadata.
 
 Machine-readable matrix: `submission_prep/baseline_ablation_matrix.yaml`
+Rejection-recovery evidence contract:
+`submission_prep/rejection_recovery_contract.md`
 
 ## Validation Performed
 
@@ -69,7 +71,8 @@ the industrial-data, GPU-feasibility, statistical, or SOTA gates.
    precision, runtime, GPU model, and OOM/failure reason.
 3. Repeat under the accepted CWRU/XJTU or industrial protocol with enough
    seeds for mean, standard deviation, and confidence intervals.
-4. Bind TimeMixer, SARAD, CATCH, and DADA to local representative commands or
-   mark exact reproduction as `resource-blocked` under the 2x4090 budget.
+4. Bind TimeMixer, SARAD, CATCH, DADA, PGRFNet, GTM, CSLSTM, and TSPulse to
+   exact or representative local commands, or mark exact reproduction as
+   `resource-blocked` under the 2x4090 budget.
 5. Allow SOTA wording only after the proposed method beats all accepted
    baselines under the same protocol.

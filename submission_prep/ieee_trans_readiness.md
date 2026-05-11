@@ -16,6 +16,8 @@ SOTA claim.
 - Main synthetic validation entrypoint: `python code/synthetic_verification.py`
 - Command-bound baseline/ablation matrix:
   `submission_prep/baseline_ablation_matrix.yaml`
+- Rejection-recovery evidence contract:
+  `submission_prep/rejection_recovery_contract.md`
 
 ## Verified Commands
 
@@ -89,9 +91,9 @@ Result on 2026-05-11:
 | Industrial runnable entrypoint | partial | `configs/vibench/min.yaml` runs as dummy-data smoke in `LQ_signal`; no industrial protocol proof yet. |
 | 6+ baseline suite | command-bound with dummy-smoke pass | `submission_prep/baseline_ablation_matrix.yaml` declares seven baseline commands and all seven dummy smokes pass in `LQ_signal`; same-protocol industrial runs/artifacts are still missing. |
 | Ablation suite | command-bound with dummy-smoke pass | `submission_prep/baseline_ablation_matrix.yaml` declares six ablation commands and all six dummy smokes pass in `LQ_signal`; same-protocol industrial artifacts are still missing. |
-| TOP recent-work representative | blocked | Parent goal requires TimeMixer, SARAD, CATCH, and DADA representatives; no local same-protocol command/log/artifact mapping exists yet. |
+| TOP recent-work representative | blocked | Parent goal requires TimeMixer, SARAD, CATCH, DADA, PGRFNet, GTM, CSLSTM, and TSPulse representatives; only the parent queue GTM proxy is mapped, and no accepted same-protocol command/log/artifact package exists yet. |
 | SOTA diagnosis claim | blocked | No same-protocol industrial-data evidence beats the declared baselines. Use theory/interpretable-mechanism wording only. |
-| Rejection-recovery trace | partial | `revision/review_response_plan.md` exists; it still needs command-backed evidence links. |
+| Rejection-recovery trace | partial | `revision/review_response_plan.md` and `submission_prep/rejection_recovery_contract.md` exist; they still need command-backed accepted evidence links. |
 
 ## Next Execution Milestone
 
