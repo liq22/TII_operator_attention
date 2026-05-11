@@ -67,7 +67,9 @@ python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/
 - Canonical manuscript entrypoint: `manuscript/final_tex/main.tex`
 - Source manuscript consumed by the canonical entrypoint: `bare_jrnl_new_sample4.tex`
 - Strict readiness evidence: `submission_prep/ieee_trans_readiness.md`
+- Baseline/ablation command matrix:
+  `submission_prep/baseline_ablation_matrix.yaml`
 - SOTA claim: blocked until same-protocol industrial-data evidence beats all declared baselines.
-- Baseline gate: blocked until at least six paper-local baseline commands/logs/artifacts are bound.
-- Ablation gate: blocked until DSOA/operator/sparsity/physics-consistency/operator-subset/temperature sweeps are bound.
+- Baseline gate: commands are bound for seven local baselines, but logs/artifacts are still pending.
+- Ablation gate: commands are bound for six local ablations, but logs/artifacts are still pending.
 - TOP recent-work gate: blocked until TimeMixer, SARAD, CATCH, and DADA representatives have local command/log/artifact mappings or explicit `resource-blocked` decisions under the two RTX 4090 budget.

@@ -14,6 +14,8 @@ SOTA claim.
 - Parent-facing reproduction contract: `VIBENCH.md`
 - Minimal PHM-Vibench config: `configs/vibench/min.yaml`
 - Main synthetic validation entrypoint: `python code/synthetic_verification.py`
+- Command-bound baseline/ablation matrix:
+  `submission_prep/baseline_ablation_matrix.yaml`
 
 ## Verified Commands
 
@@ -85,21 +87,17 @@ Result on 2026-05-11:
 | Canonical TeX entrypoint | partial pass | `manuscript/final_tex/main.tex` compiles from the submodule root and consumes `bare_jrnl_new_sample4.tex`; evidence tables still require command-backed updates before submission. |
 | Synthetic validation | partial pass | Script runs, writes submodule-local artifacts, and covers 8 signal classes; this satisfies the synthetic signal-count gate but remains simulated operator-selection evidence only. |
 | Industrial runnable entrypoint | partial | `configs/vibench/min.yaml` runs as dummy-data smoke in `LQ_signal`; no industrial protocol proof yet. |
-| 6+ baseline suite | blocked | Required baselines are declared in the parent goal, but same-protocol runs and artifacts are not present. |
-| Ablation suite | blocked | Existing figures mention ablation, but accepted artifact mapping for remove-operator-attention, sparse/L1, physics consistency, operator subset, and temperature/sparsity sensitivity is missing. |
+| 6+ baseline suite | command-bound only | `submission_prep/baseline_ablation_matrix.yaml` declares seven runnable baseline commands; same-protocol industrial runs and artifacts are still missing. |
+| Ablation suite | command-bound only | `submission_prep/baseline_ablation_matrix.yaml` declares six ablation commands for removal, operator subsets, and temperature sensitivity; same-protocol industrial artifacts are still missing. |
 | TOP recent-work representative | blocked | Parent goal requires TimeMixer, SARAD, CATCH, and DADA representatives; no local same-protocol command/log/artifact mapping exists yet. |
 | SOTA diagnosis claim | blocked | No same-protocol industrial-data evidence beats the declared baselines. Use theory/interpretable-mechanism wording only. |
 | Rejection-recovery trace | partial | `revision/review_response_plan.md` exists; it still needs command-backed evidence links. |
 
 ## Next Execution Milestone
 
-1. Add a paper-local baseline matrix with at least six commands:
-   no operator attention, ResNet1D, SincNet, TFN, WKN, PatchTST or
-   ConvTransformer, and feature/self-attention using the same backbone.
-2. Add ablation commands for operator removal, sparse/L1 removal, physics
-   consistency removal, operator subset sweep, feature/self-attention
-   comparison, and sparsity/temperature sensitivity.
-3. Bind the TOP recent-work representatives to local commands or explicitly
+1. Run the command-bound baseline and ablation matrix on the accepted
+   industrial protocol with local GPU metadata and multi-seed statistics.
+2. Bind the TOP recent-work representatives to local commands or explicitly
    mark exact reproduction as `resource-blocked` under the two RTX 4090 budget.
-4. Update the normalized manuscript package after the evidence tables are
+3. Update the normalized manuscript package after the evidence tables are
    generated.
