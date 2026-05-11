@@ -72,10 +72,9 @@ Result on 2026-05-11:
 - Exit code: 0 for all four commands
 - Output: `main.pdf`
 - Final pass: no undefined citation/reference warnings observed
-- Remaining warnings: BibTeX reports empty `year` fields for
-  `deng_physics-informed_2023`, `ha_domain_2023`,
-  `su_knowledge-informed_2024`, `ni_physics-informed_2023`, and
-  `guo_attention_2022`
+- Remaining warnings: routine layout warnings and IEEEtran language
+  hyphenation warnings; no `empty year` BibTeX warnings remained after adding
+  explicit `year` fields for the affected entries.
 - Scope: compileability of the normalized IEEE entrypoint only; the manuscript
   still needs evidence-table updates before submission.
 
