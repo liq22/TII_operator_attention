@@ -64,7 +64,8 @@ python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/
 
 ## 4) IEEE Transactions gate（2026-05-11）
 
-- Canonical manuscript candidate: `bare_jrnl_new_sample4.tex`
+- Canonical manuscript entrypoint: `manuscript/final_tex/main.tex`
+- Source manuscript consumed by the canonical entrypoint: `bare_jrnl_new_sample4.tex`
 - Strict readiness evidence: `submission_prep/ieee_trans_readiness.md`
 - SOTA claim: blocked until same-protocol industrial-data evidence beats all declared baselines.
 - Baseline gate: blocked until at least six paper-local baseline commands/logs/artifacts are bound.

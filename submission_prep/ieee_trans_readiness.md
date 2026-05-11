@@ -8,7 +8,8 @@ SOTA claim.
 
 ## Canonical Package
 
-- Manuscript candidate: `bare_jrnl_new_sample4.tex`
+- Canonical manuscript entrypoint: `manuscript/final_tex/main.tex`
+- Source manuscript consumed by canonical entrypoint: `bare_jrnl_new_sample4.tex`
 - Existing PDF: `bare_jrnl_new_sample4.pdf`
 - Parent-facing reproduction contract: `VIBENCH.md`
 - Minimal PHM-Vibench config: `configs/vibench/min.yaml`
@@ -57,11 +58,24 @@ Result on 2026-05-11:
 The smoke run proves the entrypoint wiring only. It does not prove industrial
 accuracy, SOTA performance, or submission readiness.
 
+Canonical TeX compile gate:
+
+```bash
+pdflatex -interaction=nonstopmode manuscript/final_tex/main.tex
+```
+
+Result on 2026-05-11:
+
+- Exit code: 0
+- Output: `main.pdf`
+- Scope: compileability of the normalized IEEE entrypoint only; the manuscript
+  still needs evidence-table updates before submission.
+
 ## Current Gate Status
 
 | Gate | Status | Evidence or blocker |
 |---|---|---|
-| Canonical TeX entrypoint | partial | `bare_jrnl_new_sample4.tex` exists, but no normalized `manuscript/final_tex/main.tex` package yet. |
+| Canonical TeX entrypoint | partial pass | `manuscript/final_tex/main.tex` compiles from the submodule root and consumes `bare_jrnl_new_sample4.tex`; evidence tables still require command-backed updates before submission. |
 | Synthetic validation | partial pass | Script runs, writes submodule-local artifacts, and covers 8 signal classes; this satisfies the synthetic signal-count gate but remains simulated operator-selection evidence only. |
 | Industrial runnable entrypoint | partial | `configs/vibench/min.yaml` runs as dummy-data smoke in `LQ_signal`; no industrial protocol proof yet. |
 | 6+ baseline suite | blocked | Required baselines are declared in the parent goal, but same-protocol runs and artifacts are not present. |
@@ -80,5 +94,5 @@ accuracy, SOTA performance, or submission readiness.
    comparison, and sparsity/temperature sensitivity.
 3. Bind the TOP recent-work representatives to local commands or explicitly
    mark exact reproduction as `resource-blocked` under the two RTX 4090 budget.
-4. Normalize the manuscript package and compile it after the evidence tables
-   are updated.
+4. Update the normalized manuscript package after the evidence tables are
+   generated.
