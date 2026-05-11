@@ -37,12 +37,16 @@ baselines:
     goal_mapping: "X_model.NSN or TSPN_UXFD without operator attention"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=NSN --override model.uxfd.operator_attention.enable=false --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=0.7205665111541748, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
   - id: "B02"
     label: "ResNet baseline"
     goal_mapping: "CNN.ResNet1D / X_model.Resnet"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=Resnet --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=1.1218299865722656, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
   - id: "B03"
     label: "SincNet baseline"
@@ -81,6 +85,8 @@ ablations:
     goal_mapping: "Remove operator attention"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=NSN --override model.uxfd.operator_attention.enable=false --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "same run as B01; pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=0.7205665111541748, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
   - id: "A02"
     label: "identity-only operator subset"
