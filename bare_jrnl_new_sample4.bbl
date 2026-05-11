@@ -126,17 +126,6 @@ D.~Gao, Y.~Zhu, Z.~Ren, K.~Yan, and W.~Kang, ``{A novel weak fault diagnosis
   method for rolling bearings based on LSTM considering quasi-periodicity},''
   \emph{Knowledge-Based Systems}, vol. 231, nov 2021.
 
-\bibitem{Hu2022}
-W.~Hu, ``{Generative Adversarial Imputation Network With Gradient Penalty for
-  Rotating Machine Health Monitoring Under Signal Loss Condition},'' \emph{IEEE
-  Transactions on Instrumentation and Measurement}, vol.~71, pp. 1--12, 2022.
-
-\bibitem{Tang2022}
-J.~Tang, G.~Zheng, C.~Wei, W.~Huang, and X.~Ding, ``{Signal-Transformer: A
-  Robust and Interpretable Method for Rotating Machinery Intelligent Fault
-  Diagnosis under Variable Operating Conditions},'' \emph{IEEE Transactions on
-  Instrumentation and Measurement}, vol.~71, pp. 1--11, 2022.
-
 \bibitem{deng_physics-informed_2023}
 \BIBentryALTinterwordspacing
 W.~Deng, K.~T. Nguyen, K.~Medjaher, C.~Gogu, and J.~Morio, ``Physics-informed
@@ -275,16 +264,6 @@ X.~Wang, C.~Shen, M.~Xia, D.~Wang, J.~Zhu, and Z.~Zhu, ``{Multi-scale deep
   intra-class transfer learning for bearing fault diagnosis},''
   \emph{Reliability Engineering and System Safety}, vol. 202, p. 107050, oct
   2020.
-
-\bibitem{liu_sinc-based_2023}
-\BIBentryALTinterwordspacing
-R.~Liu, X.~Ding, S.~Liu, Q.~Wu, and Y.~Shao,
-  ``\BIBforeignlanguage{en}{Sinc-{Based} {Multiplication}-{Convolution}
-  {Network} for {Small}-{Sample} {Fault} {Diagnosis} and {Edge}
-  {Application}},'' \emph{\BIBforeignlanguage{en}{IEEE Transactions on
-  Instrumentation and Measurement}}, vol.~72, pp. 1--12, 2023. [Online].
-  Available: \url{https://ieeexplore.ieee.org/document/10266990/}
-\BIBentrySTDinterwordspacing
 
 \bibitem{Li2022}
 T.~Li, Z.~Zhao, C.~Sun, L.~Cheng, X.~Chen, R.~Yan, and R.~X. Gao,

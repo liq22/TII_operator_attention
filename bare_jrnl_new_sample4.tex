@@ -93,21 +93,11 @@ Fault diagnosis serves an important role in pursuing the relationship between mo
 \label{idea}
 \end{figure}
 
-% Moreover, more feature index such as the smoothness index \cite{BOZCHALOOI2007246}, negative entropy \cite{Huo_2020_entropy}, Fisher’s discriminant ratio \cite{YAN2022108053}, and Gini index \cite{Chen_Song_Cheng_Zhang_Huang_Muhamedsalih_2022}, have been derived from the vibration signal to assess the health condition for fault diagnosis. 
-
-
-% Chen et al. 
-% employed hierarchical decomposition to segment the bearing vibration signal into multiple hierarchical components. They then computed the improved envelope spectrum entropy for each hierarchical component to extract the original feature set \cite{chen_feature_2023}.
-
 \subsubsection{Deep learning-based method}
-In the era of AI, many tasks involve deep learning to directly learn the relationship from monitored signals to the health state of the machine. For example, Gao et al \cite{Gao2021} proposed a novel weak fault feature extraction and diagnosis method using multi-channel continuous wavelet transform and a convolution-feature-based recurrent neural network. Hu et al. \cite{Hu2022} utilized Generative adversarial network (GAN) to fulfill fault feature recovery where Li et al. \cite{Li2023} utilized GAN to achieve cross-domain generalization. Tang et al. \cite{Tang2022} proposed a signal transformer with strong robustness under variable operating conditions.
+In the era of AI, many tasks involve deep learning to directly learn the relationship from monitored signals to the health state of the machine. For example, Gao et al \cite{Gao2021} proposed a novel weak fault feature extraction and diagnosis method using multi-channel continuous wavelet transform and a convolution-feature-based recurrent neural network. Li et al. \cite{Li2023} utilized GAN to achieve cross-domain generalization.
 
 \subsubsection{Knowledge-informed explainable intelligent fault diagnosis}
 Recently, many knowledge-informed diagnostic methods have emerged, balancing both performance and explainability \cite{deng_physics-informed_2023}. Wang et al. \cite{wangPhysicallyInterpretableWaveletguided2024} proposed a physically interpretable wavelet-guided network (WaveGNet) with deep frequency separation, providing a basis and physical meaning for the discrete wavelet transform (DWT). Li et al. \cite{liWaveletKernelNetInterpretableDeep2020a} designed a continuous wavelet convolutional (CWConv) layer to replace the first convolutional layer of the standard CNN. Qin et al. \cite{qin_vwm-dcrnn_2023} proposed a diagnostic method using variational mode decomposition and a dual model of convolutional recurrent neural network to identify faults in insulated gate bipolar transistors. Ha et al. \cite{ha_domain_2023} utilized a health data map to visually display the vibration signal of a planetary gearbox as an image-like matrix, aiding in the observation of fault-related characteristics. Su et al. \cite{su_knowledge-informed_2024} introduced a knowledge-informed deep network that leverages knowledge-based features along with a data-driven constrained Gaussian process for precise bearing fault prediction. Ni et al. \cite{ni_physics-informed_2023} developed a physics-informed residual network designed to learn the inherent physics in both training and testing data. This network includes a physical modal-property-dominant-generated layer and a domain-conversion layer, providing a physically consistent solution for imperfect data.
-
-% Chen et al. \cite{chen_knowledge-informed_2024} presented a data-driven approach for predicting wear by integrating domain expertise with spectral analysis, knowledge inference, data fusion, feature extraction, and regression modeling. 
-
-
 
 % \subsection{Proposed method}
 While the work mentioned above has achieved notable success, it is important to acknowledge that the current methods also have some limitations.
@@ -412,7 +402,7 @@ The experimental data used in case 2 was obtained from the rolling bearing test 
 
 
 \subsection{Compared methods}
-In order to assess the performance of our model in terms of effectiveness, model explainability and diagnostic performance, we conduct a comparative analysis with various IFD methods using different parameters, as detailed in Table \ref{table.signaldomain}. Among these methods is the ResNet fashion method, a widely recognized convolutional neural network utilized in various domains, including IFD \cite{Wang2020}. For our comparison, we selected the ResNet-18 version as M1, serving as the neural fashion backbone. Additionally, we assessed Sincnet \cite{liu_sinc-based_2023} as M2 and the WKN model \cite{Li2022} as M3, both of which incorporate sinc filters and maintain Morlet wavelet convolution expertise analogous to ResNet. Moreover, we included the MWA-CNN \cite{Wang2023}, which integrates the Discrete Wavelet Attention Layer, as M4 for evaluation purposes.
+In order to assess the performance of our model in terms of effectiveness, model explainability and diagnostic performance, we conduct a comparative analysis with various IFD methods using different parameters, as detailed in Table \ref{table.signaldomain}. Among these methods is the ResNet fashion method, a widely recognized convolutional neural network utilized in various domains, including IFD \cite{Wang2020}. For our comparison, we selected the ResNet-18 version as M1, serving as the neural fashion backbone. Additionally, we assessed a SincNet-style filter baseline \cite{ravanelli_interpretable_2019} as M2 and the WKN model \cite{Li2022} as M3, both of which incorporate sinc filters and maintain Morlet wavelet convolution expertise analogous to ResNet. Moreover, we included the MWA-CNN \cite{Wang2023}, which integrates the Discrete Wavelet Attention Layer, as M4 for evaluation purposes.
 
 
 \subsection{Case 1}
@@ -675,5 +665,3 @@ Future research will focus on expanding the EKD with criteria for selecting and 
 \vfill
 
 \end{document}
-
-
