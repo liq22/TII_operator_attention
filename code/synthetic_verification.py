@@ -9,8 +9,14 @@ import torch
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
+import json
 import sys
 sys.path.append('../../')
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+FIGURES_DIR = PROJECT_ROOT / "figures"
+RESULTS_DIR = PROJECT_ROOT / "results"
+DOC_DIR = PROJECT_ROOT / "doc"
 
 # 设置中文字体和图表样式
 plt.rcParams['font.sans-serif'] = ['SimHei', 'Times New Roman']
@@ -22,10 +28,11 @@ plt.rcParams['savefig.dpi'] = 300
 class SyntheticSignalGenerator:
     """合成信号生成器"""
 
-    def __init__(self, sample_rate=1024, duration=1.0):
+    def __init__(self, sample_rate=1024, duration=1.0, seed=0):
         self.sample_rate = sample_rate
         self.duration = duration
         self.t = np.linspace(0, duration, int(sample_rate * duration))
+        self.rng = np.random.default_rng(seed)
 
     def generate_single_freq(self, freq=50, amplitude=1.0):
         """生成单频信号"""
@@ -59,7 +66,7 @@ class SyntheticSignalGenerator:
         """生成带噪声信号"""
         signal_power = np.mean(clean_signal**2)
         noise_power = signal_power / (10**(snr_db/10))
-        noise = np.sqrt(noise_power) * np.random.randn(len(clean_signal))
+        noise = np.sqrt(noise_power) * self.rng.standard_normal(len(clean_signal))
         return clean_signal + noise
 
     def generate_multi_scale(self):
@@ -75,8 +82,9 @@ class SyntheticSignalGenerator:
 class OperatorAttentionAnalyzer:
     """算子注意力分析器"""
 
-    def __init__(self, model_path=None):
+    def __init__(self, model_path=None, seed=0):
         self.operator_names = ['FFT', 'HT', 'WF', 'LNO', 'I']
+        self.rng = np.random.default_rng(seed)
         # 这里应该加载实际的OperatorAttention模型
         # 为了演示，我们使用模拟的权重
 
@@ -139,7 +147,7 @@ class OperatorAttentionAnalyzer:
         weights = weights / np.sum(weights)
 
         # 添加一些随机性，模拟实际神经网络的不确定性
-        noise = np.random.normal(0, 0.02, 5)
+        noise = self.rng.normal(0, 0.02, 5)
         weights = weights + noise
         weights = np.maximum(weights, 0)  # 非负约束
         weights = weights / np.sum(weights)  # 重新归一化
@@ -185,10 +193,13 @@ def run_synthetic_verification():
     """运行合成信号验证实验"""
 
     print("🔬 开始合成信号验证实验...")
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    DOC_DIR.mkdir(parents=True, exist_ok=True)
 
     # 初始化
-    generator = SyntheticSignalGenerator(sample_rate=1024, duration=1.0)
-    analyzer = OperatorAttentionAnalyzer()
+    generator = SyntheticSignalGenerator(sample_rate=1024, duration=1.0, seed=0)
+    analyzer = OperatorAttentionAnalyzer(seed=0)
 
     # 生成测试信号
     signals = {
@@ -244,9 +255,10 @@ def run_synthetic_verification():
         ax.grid(True, alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+    synthetic_signals_path = FIGURES_DIR / "synthetic_signals.png"
+    plt.savefig(synthetic_signals_path,
                 bbox_inches='tight', dpi=300)
-    print(f"\n💾 信号图已保存到: ./Paper/TII_operator_attention/figures/synthetic_signals.png")
+    print(f"\n💾 信号图已保存到: {synthetic_signals_path}")
 
     # 生成权重热图
     fig2, ax2 = plt.subplots(figsize=(10, 8))
@@ -271,9 +283,10 @@ def run_synthetic_verification():
 
     plt.colorbar(im, ax=ax2, label='权重值')
     plt.tight_layout()
-    plt.savefig('./Paper/TII_operator_attention/figures/operator_weights_heatmap.png',
+    heatmap_path = FIGURES_DIR / "operator_weights_heatmap.png"
+    plt.savefig(heatmap_path,
                 bbox_inches='tight', dpi=300)
-    print(f"💾 权重热图已保存到: ./Paper/TII_operator_attention/figures/operator_weights_heatmap.png")
+    print(f"💾 权重热图已保存到: {heatmap_path}")
 
     # 生成对比分析
     fig3, (ax3, ax4) = plt.subplots(1, 2, figsize=(15, 6))
@@ -311,9 +324,25 @@ def run_synthetic_verification():
                 f'{score:.3f}', ha='center', va='bottom', fontweight='bold')
 
     plt.tight_layout()
-    plt.savefig('./Paper/TII_operator_attention/figures/explainability_comparison.png',
+    explainability_path = FIGURES_DIR / "explainability_comparison.png"
+    plt.savefig(explainability_path,
                 bbox_inches='tight', dpi=300)
-    print(f"💾 对比分析图已保存到: ./Paper/TII_operator_attention/figures/explainability_comparison.png")
+    print(f"💾 对比分析图已保存到: {explainability_path}")
+
+    serializable_results = {
+        signal_type: {
+            operator: float(weight)
+            for operator, weight in zip(analyzer.operator_names, values["weights"])
+        }
+        | {
+            "consistency": float(values["consistency"]),
+            "explainability": float(values["explainability"]),
+        }
+        for signal_type, values in results.items()
+    }
+    results_path = RESULTS_DIR / "synthetic_validation_results.json"
+    with results_path.open("w", encoding="utf-8") as f:
+        json.dump(serializable_results, f, indent=2, ensure_ascii=False)
 
     # 生成分析报告
     avg_consistency = np.mean(consistencies)
@@ -377,10 +406,12 @@ def run_synthetic_verification():
 """
 
     # 保存报告
-    with open('./Paper/TII_operator_attention/doc/synthetic_verification_report.md', 'w') as f:
+    report_path = DOC_DIR / "synthetic_verification_report.md"
+    with report_path.open("w", encoding="utf-8") as f:
         f.write(report)
 
-    print(f"\n📋 验证报告已保存到: ./Paper/TII_operator_attention/doc/synthetic_verification_report.md")
+    print(f"\n📋 验证报告已保存到: {report_path}")
+    print(f"📄 JSON结果已保存到: {results_path}")
     print(f"\n✅ 合成信号验证实验完成！")
     print(f"   - 平均物理一致性: {avg_consistency:.3f}")
     print(f"   - 平均可解释性: {avg_explainability:.3f}")

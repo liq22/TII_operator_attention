@@ -1,0 +1,106 @@
+code/synthetic_verification.py:246: UserWarning: Glyph 26102 (\N{CJK UNIFIED IDEOGRAPH-65F6}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 38388 (\N{CJK UNIFIED IDEOGRAPH-95F4}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 24133 (\N{CJK UNIFIED IDEOGRAPH-5E45}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 20540 (\N{CJK UNIFIED IDEOGRAPH-503C}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 20449 (\N{CJK UNIFIED IDEOGRAPH-4FE1}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 21495 (\N{CJK UNIFIED IDEOGRAPH-53F7}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 31639 (\N{CJK UNIFIED IDEOGRAPH-7B97}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 23376 (\N{CJK UNIFIED IDEOGRAPH-5B50}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 27880 (\N{CJK UNIFIED IDEOGRAPH-6CE8}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 24847 (\N{CJK UNIFIED IDEOGRAPH-610F}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 21147 (\N{CJK UNIFIED IDEOGRAPH-529B}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 26426 (\N{CJK UNIFIED IDEOGRAPH-673A}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 21046 (\N{CJK UNIFIED IDEOGRAPH-5236}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 39564 (\N{CJK UNIFIED IDEOGRAPH-9A8C}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 35777 (\N{CJK UNIFIED IDEOGRAPH-8BC1}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 21512 (\N{CJK UNIFIED IDEOGRAPH-5408}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 25104 (\N{CJK UNIFIED IDEOGRAPH-6210}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:246: UserWarning: Glyph 23454 (\N{CJK UNIFIED IDEOGRAPH-5B9E}) missing from current font.
+  plt.tight_layout()
+code/synthetic_verification.py:247: UserWarning: Glyph 26102 (\N{CJK UNIFIED IDEOGRAPH-65F6}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 38388 (\N{CJK UNIFIED IDEOGRAPH-95F4}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 24133 (\N{CJK UNIFIED IDEOGRAPH-5E45}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 20540 (\N{CJK UNIFIED IDEOGRAPH-503C}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 20449 (\N{CJK UNIFIED IDEOGRAPH-4FE1}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 21495 (\N{CJK UNIFIED IDEOGRAPH-53F7}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 31639 (\N{CJK UNIFIED IDEOGRAPH-7B97}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 23376 (\N{CJK UNIFIED IDEOGRAPH-5B50}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 27880 (\N{CJK UNIFIED IDEOGRAPH-6CE8}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 24847 (\N{CJK UNIFIED IDEOGRAPH-610F}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 21147 (\N{CJK UNIFIED IDEOGRAPH-529B}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 26426 (\N{CJK UNIFIED IDEOGRAPH-673A}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 21046 (\N{CJK UNIFIED IDEOGRAPH-5236}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 39564 (\N{CJK UNIFIED IDEOGRAPH-9A8C}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 35777 (\N{CJK UNIFIED IDEOGRAPH-8BC1}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 21512 (\N{CJK UNIFIED IDEOGRAPH-5408}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 25104 (\N{CJK UNIFIED IDEOGRAPH-6210}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+code/synthetic_verification.py:247: UserWarning: Glyph 23454 (\N{CJK UNIFIED IDEOGRAPH-5B9E}) missing from current font.
+  plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+🔬 开始合成信号验证实验...
+
+📊 分析结果:
+------------------------------------------------------------
+信号类型               FFT     HT     WF    LNO      I      一致性     可解释性
+------------------------------------------------------------
+single_freq    0.685  0.098  0.103  0.057  0.057  1.000  0.350
+high_freq      0.866  0.057  0.039  0.009  0.028  1.000  0.653
+dual_freq      0.542  0.090  0.292  0.054  0.022  0.997  0.286
+transient      0.097  0.578  0.176  0.095  0.053  0.999  0.236
+noisy          0.105  0.088  0.419  0.326  0.063  0.998  0.159
+multi_scale    0.225  0.174  0.439  0.101  0.061  0.998  0.128
+Traceback (most recent call last):
+  File "code/synthetic_verification.py", line 393, in <module>
+    run_synthetic_verification()
+  File "code/synthetic_verification.py", line 247, in run_synthetic_verification
+    plt.savefig('./Paper/TII_operator_attention/figures/synthetic_signals.png',
+  File "/home/user/.local/lib/python3.8/site-packages/matplotlib/pyplot.py", line 1023, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/home/user/.local/lib/python3.8/site-packages/matplotlib/figure.py", line 3378, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/user/.local/lib/python3.8/site-packages/matplotlib/backend_bases.py", line 2366, in print_figure
+    result = print_method(
+  File "/home/user/.local/lib/python3.8/site-packages/matplotlib/backend_bases.py", line 2232, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/home/user/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py", line 509, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/user/.local/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py", line 458, in _print_pil
+    mpl.image.imsave(
+  File "/home/user/.local/lib/python3.8/site-packages/matplotlib/image.py", line 1689, in imsave
+    image.save(fname, **pil_kwargs)
+  File "/usr/lib/python3/dist-packages/PIL/Image.py", line 2099, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: './Paper/TII_operator_attention/figures/synthetic_signals.png'
