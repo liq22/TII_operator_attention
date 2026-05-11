@@ -88,7 +88,7 @@ Result on 2026-05-11:
 | Synthetic validation | partial pass | Script runs, writes submodule-local artifacts, and covers 8 signal classes; this satisfies the synthetic signal-count gate but remains simulated operator-selection evidence only. |
 | Industrial runnable entrypoint | partial | `configs/vibench/min.yaml` runs as dummy-data smoke in `LQ_signal`; no industrial protocol proof yet. |
 | 6+ baseline suite | command-bound with smoke caveats | `submission_prep/baseline_ablation_matrix.yaml` declares seven baseline commands; B01-B05 and B07 dummy smoke passed in `LQ_signal`, B06 is blocked by a Transformer import error, and same-protocol industrial runs/artifacts are still missing. |
-| Ablation suite | command-bound only | `submission_prep/baseline_ablation_matrix.yaml` declares six ablation commands; A01 shares the passing B01 dummy smoke, but same-protocol industrial artifacts are still missing. |
+| Ablation suite | command-bound with dummy-smoke pass | `submission_prep/baseline_ablation_matrix.yaml` declares six ablation commands and all six dummy smokes pass in `LQ_signal`; same-protocol industrial artifacts are still missing. |
 | TOP recent-work representative | blocked | Parent goal requires TimeMixer, SARAD, CATCH, and DADA representatives; no local same-protocol command/log/artifact mapping exists yet. |
 | SOTA diagnosis claim | blocked | No same-protocol industrial-data evidence beats the declared baselines. Use theory/interpretable-mechanism wording only. |
 | Rejection-recovery trace | partial | `revision/review_response_plan.md` exists; it still needs command-backed evidence links. |

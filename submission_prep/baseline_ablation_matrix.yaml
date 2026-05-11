@@ -103,30 +103,40 @@ ablations:
     goal_mapping: "Operator subset sweep: identity"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=NSN --override model.uxfd.operator_attention.operators='[\"I\"]' --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=0.7205665111541748, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
   - id: "A03"
     label: "Hilbert-only operator subset"
     goal_mapping: "Operator subset sweep: HT"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=NSN --override model.uxfd.operator_attention.operators='[\"HT\"]' --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=0.721332311630249, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
   - id: "A04"
     label: "FFT-only operator subset"
     goal_mapping: "Operator subset sweep: FFT"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=NSN --override model.uxfd.operator_attention.operators='[\"FFT\"]' --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=0.7206393480300903, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
   - id: "A05"
     label: "low temperature sensitivity"
     goal_mapping: "Sensitivity to attention temperature"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=NSN --override model.uxfd.operator_attention.temperature=0.5 --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=0.7220381498336792, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
   - id: "A06"
     label: "high temperature sensitivity"
     goal_mapping: "Sensitivity to attention temperature"
     command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.name=NSN --override model.uxfd.operator_attention.temperature=2.0 --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
+    dummy_smoke_status: "pass in LQ_signal on dummy data; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=0.7221447229385376, test_acc_Dummy_Data=0.0"
     accepted_evidence_status: "pending same-protocol industrial run"
 
 top_recent_work:

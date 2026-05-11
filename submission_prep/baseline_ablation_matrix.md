@@ -46,6 +46,21 @@ dummy-data entrypoint:
 These smoke runs verify command executability only. They do not satisfy the
 industrial-data, GPU-feasibility, baseline-table, or SOTA gates.
 
+All six local ablation commands were also executed in `LQ_signal` against the
+dummy-data entrypoint:
+
+| ID | Result | Metric |
+|---|---|---|
+| A01 | pass, same run as B01, CPU fallback because GPU/NVML was unavailable | `test_loss=0.7205665111541748`, `test_acc_Dummy_Data=0.0` |
+| A02 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.7205665111541748`, `test_acc_Dummy_Data=0.0` |
+| A03 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.721332311630249`, `test_acc_Dummy_Data=0.0` |
+| A04 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.7206393480300903`, `test_acc_Dummy_Data=0.0` |
+| A05 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.7220381498336792`, `test_acc_Dummy_Data=0.0` |
+| A06 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.7221447229385376`, `test_acc_Dummy_Data=0.0` |
+
+These ablation smokes verify variant executability only. They do not satisfy
+the industrial-data, GPU-feasibility, statistical, or SOTA gates.
+
 ## Required Next Evidence
 
 1. Run every command in the YAML matrix with `CUDA_VISIBLE_DEVICES=0` or
