@@ -40,7 +40,7 @@ dummy-data entrypoint:
 | B03 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=4.801812171936035`, `test_acc_Dummy_Data=0.0` |
 | B04 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.8415476679801941`, `test_acc_Dummy_Data=0.0` |
 | B05 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.6259610652923584`, `test_acc_Dummy_Data=0.625` |
-| B06 | fail before training | `ImportError: cannot import name 'register_model' from 'src.model_factory'` while importing `src/model_factory/Transformer/__init__.py` |
+| B06 | pass after restoring legacy `register_model` compatibility and adding `model.input_dim=2`, CPU fallback because GPU/NVML was unavailable | `test_loss=7.736400604248047`, `test_acc_Dummy_Data=0.0` |
 | B07 | pass after adding `model.input_dim=2`, CPU fallback because GPU/NVML was unavailable | `test_loss=0.677749752998352`, `test_acc_Dummy_Data=1.0` |
 
 These smoke runs verify command executability only. They do not satisfy the

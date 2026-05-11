@@ -75,11 +75,11 @@ baselines:
   - id: "B06"
     label: "ConvTransformer baseline"
     goal_mapping: "Transformer.ConvTransformer"
-    command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.type=Transformer --override model.name=ConvTransformer --override trainer.num_epochs=1 --override data.num_workers=0"
+    command: "CUDA_VISIBLE_DEVICES=0 python main.py --config paper/UXFD_paper/TII_operator_attention/configs/vibench/min.yaml --override model.type=Transformer --override model.name=ConvTransformer --override model.input_dim=2 --override trainer.num_epochs=1 --override data.num_workers=0"
     config_target_validated: true
-    dummy_smoke_status: "fail in LQ_signal before training"
-    dummy_smoke_blocker: "ImportError: cannot import name 'register_model' from 'src.model_factory' while importing src/model_factory/Transformer/__init__.py"
-    accepted_evidence_status: "blocked until Transformer package import is fixed, then pending same-protocol industrial run"
+    dummy_smoke_status: "pass in LQ_signal on dummy data after restoring legacy register_model compatibility and binding model.input_dim=2; CPU fallback because GPU/NVML unavailable"
+    dummy_smoke_metric: "test_loss=7.736400604248047, test_acc_Dummy_Data=0.0"
+    accepted_evidence_status: "pending same-protocol industrial run"
   - id: "B07"
     label: "Feature/self-attention CNN baseline"
     goal_mapping: "standard feature/self-attention variant using a comparable backbone"
@@ -159,7 +159,6 @@ top_recent_work:
 
 strict_blockers:
   - "No accepted industrial multi-seed baseline table yet."
-  - "Transformer baseline B06 is command-bound but dummy-smoke blocked by a Transformer package import error."
   - "No accepted ablation artifact table yet."
   - "No local TOP representative command/log/artifact mapping yet."
   - "No GPU model/runtime metadata from local GPUs 0,1 yet."
