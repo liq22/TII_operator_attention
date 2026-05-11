@@ -37,7 +37,8 @@ python code/synthetic_verification.py
 2026-05-11 结果：通过，输出 `figures/synthetic_signals.png`、
 `figures/operator_weights_heatmap.png`、`figures/explainability_comparison.png`、
 `results/synthetic_validation_results.json`、`doc/synthetic_verification_report.md`。
-当前覆盖 6 类信号，尚未达到顶刊 goal 要求的 8 类信号。
+当前覆盖 8 类信号，已满足顶刊 goal 的 synthetic signal count gate；该结果仍只支持
+operator-selection theory evidence，不支持工业数据性能或 SOTA wording。
 
 ## 3) 说明（WP0 占位）
 

@@ -25,9 +25,9 @@ python code/synthetic_verification.py
 Result on 2026-05-11:
 
 - Exit code: 0
-- Signal classes covered: 6
+- Signal classes covered: 8
 - Mean physics consistency: 0.999
-- Mean explainability score: 0.299
+- Mean explainability score: 0.261
 - Output figures:
   - `figures/synthetic_signals.png`
   - `figures/operator_weights_heatmap.png`
@@ -62,7 +62,7 @@ accuracy, SOTA performance, or submission readiness.
 | Gate | Status | Evidence or blocker |
 |---|---|---|
 | Canonical TeX entrypoint | partial | `bare_jrnl_new_sample4.tex` exists, but no normalized `manuscript/final_tex/main.tex` package yet. |
-| Synthetic validation | partial | Script now runs and writes submodule-local artifacts, but only 6 signal classes are covered; the goal requires at least 8. |
+| Synthetic validation | partial pass | Script runs, writes submodule-local artifacts, and covers 8 signal classes; this satisfies the synthetic signal-count gate but remains simulated operator-selection evidence only. |
 | Industrial runnable entrypoint | partial | `configs/vibench/min.yaml` runs as dummy-data smoke in `LQ_signal`; no industrial protocol proof yet. |
 | 6+ baseline suite | blocked | Required baselines are declared in the parent goal, but same-protocol runs and artifacts are not present. |
 | Ablation suite | blocked | Existing figures mention ablation, but accepted artifact mapping for remove-operator-attention, sparse/L1, physics consistency, operator subset, and temperature/sparsity sensitivity is missing. |
@@ -72,15 +72,13 @@ accuracy, SOTA performance, or submission readiness.
 
 ## Next Execution Milestone
 
-1. Expand `code/synthetic_verification.py` from 6 to at least 8 signal classes
-   and regenerate the JSON/report/figures.
-2. Add a paper-local baseline matrix with at least six commands:
+1. Add a paper-local baseline matrix with at least six commands:
    no operator attention, ResNet1D, SincNet, TFN, WKN, PatchTST or
    ConvTransformer, and feature/self-attention using the same backbone.
-3. Add ablation commands for operator removal, sparse/L1 removal, physics
+2. Add ablation commands for operator removal, sparse/L1 removal, physics
    consistency removal, operator subset sweep, feature/self-attention
    comparison, and sparsity/temperature sensitivity.
-4. Bind the TOP recent-work representatives to local commands or explicitly
+3. Bind the TOP recent-work representatives to local commands or explicitly
    mark exact reproduction as `resource-blocked` under the two RTX 4090 budget.
-5. Normalize the manuscript package and compile it after the evidence tables
+4. Normalize the manuscript package and compile it after the evidence tables
    are updated.
