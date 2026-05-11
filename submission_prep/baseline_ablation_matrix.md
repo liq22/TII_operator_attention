@@ -30,13 +30,18 @@ The base Python environment still reports `ModuleNotFoundError("No module named
 `LQ_signal` for executable runs. Config target resolution is not a substitute
 for final training evidence.
 
-Two representative commands were also executed in `LQ_signal` against the
+The local baseline commands were also executed in `LQ_signal` against the
 dummy-data entrypoint:
 
 | ID | Result | Metric |
 |---|---|---|
 | B01/A01 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.7205665111541748`, `test_acc_Dummy_Data=0.0` |
 | B02 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=1.1218299865722656`, `test_acc_Dummy_Data=0.0` |
+| B03 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=4.801812171936035`, `test_acc_Dummy_Data=0.0` |
+| B04 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.8415476679801941`, `test_acc_Dummy_Data=0.0` |
+| B05 | pass, CPU fallback because GPU/NVML was unavailable | `test_loss=0.6259610652923584`, `test_acc_Dummy_Data=0.625` |
+| B06 | fail before training | `ImportError: cannot import name 'register_model' from 'src.model_factory'` while importing `src/model_factory/Transformer/__init__.py` |
+| B07 | pass after adding `model.input_dim=2`, CPU fallback because GPU/NVML was unavailable | `test_loss=0.677749752998352`, `test_acc_Dummy_Data=1.0` |
 
 These smoke runs verify command executability only. They do not satisfy the
 industrial-data, GPU-feasibility, baseline-table, or SOTA gates.
