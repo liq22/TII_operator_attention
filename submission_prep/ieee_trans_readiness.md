@@ -62,12 +62,20 @@ Canonical TeX compile gate:
 
 ```bash
 pdflatex -interaction=nonstopmode manuscript/final_tex/main.tex
+bibtex main
+pdflatex -interaction=nonstopmode manuscript/final_tex/main.tex
+pdflatex -interaction=nonstopmode manuscript/final_tex/main.tex
 ```
 
 Result on 2026-05-11:
 
-- Exit code: 0
+- Exit code: 0 for all four commands
 - Output: `main.pdf`
+- Final pass: no undefined citation/reference warnings observed
+- Remaining warnings: BibTeX reports empty `year` fields for
+  `deng_physics-informed_2023`, `ha_domain_2023`,
+  `su_knowledge-informed_2024`, `ni_physics-informed_2023`, and
+  `guo_attention_2022`
 - Scope: compileability of the normalized IEEE entrypoint only; the manuscript
   still needs evidence-table updates before submission.
 
