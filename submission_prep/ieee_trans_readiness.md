@@ -18,6 +18,8 @@ SOTA claim.
   `submission_prep/baseline_ablation_matrix.yaml`
 - Rejection-recovery evidence contract:
   `submission_prep/rejection_recovery_contract.md`
+- Reviewer traceability matrix:
+  `submission_prep/reviewer_traceability_matrix.md`
 
 ## Verified Commands
 
@@ -93,7 +95,7 @@ Result on 2026-05-11:
 | Ablation suite | command-bound with dummy-smoke pass | `submission_prep/baseline_ablation_matrix.yaml` declares six ablation commands and all six dummy smokes pass in `LQ_signal`; same-protocol industrial artifacts are still missing. |
 | TOP recent-work representative | blocked | Parent goal requires TimeMixer, SARAD, CATCH, DADA, PGRFNet, GTM, CSLSTM, and TSPulse representatives; only the parent queue GTM proxy is mapped, and no accepted same-protocol command/log/artifact package exists yet. |
 | SOTA diagnosis claim | blocked | No same-protocol industrial-data evidence beats the declared baselines. Use theory/interpretable-mechanism wording only. |
-| Rejection-recovery trace | partial | `revision/review_response_plan.md` and `submission_prep/rejection_recovery_contract.md` exist; they still need command-backed accepted evidence links. |
+| Rejection-recovery trace | partial | `revision/review_response_plan.md`, `submission_prep/rejection_recovery_contract.md`, and `submission_prep/reviewer_traceability_matrix.md` exist; they still need command-backed accepted evidence links. |
 
 ## Next Execution Milestone
 

@@ -27,6 +27,7 @@ superiority wording until all gates below pass with accepted artifacts.
 | `submission_prep/baseline_ablation_matrix.yaml` | Machine-readable P00, B01-B07, A01-A06, and TOP status source. |
 | `submission_prep/baseline_ablation_matrix.md` | Human-readable command-binding and next-evidence summary. |
 | `submission_prep/ieee_trans_readiness.md` | Strict reviewer gate and current status note. |
+| `submission_prep/reviewer_traceability_matrix.md` | Prior concern to evidence-gate map for rejection recovery. |
 | `revision/review_response_plan.md` | Prior rejection-risk analysis and reviewer-response strategy. |
 | Parent `paper/UXFD_paper/goal/07_tii_operator_attention.md` | Paper-level target, TOP quota, compute budget, and SOTA rules. |
 | Parent `paper/UXFD_paper/goal/09_gpu_execution_queue.yaml` | 2x4090 scheduler, accepted metadata contract, and Q1 execution order. |
@@ -92,6 +93,7 @@ partial queue coverage.
 | Ablation comparison | A01-A06 | same protocol fields as the baseline table plus ablated component. |
 | TOP representative map | 2024-2026 TOP quota rows | exact/representative/resource-blocked status, command or blocker, log path, artifact path. |
 | Operator explanation | P00 plus operator ablations | OAS, OSS, OCS, operator subset, temperature, sparsity weight, sample IDs, failure modes. |
+| Reviewer traceability | Prior rejection concerns | safe response, required accepted evidence, manuscript action, current status. |
 
 ## Stop Rules
 
